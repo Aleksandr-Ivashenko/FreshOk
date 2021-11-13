@@ -1,10 +1,6 @@
 html,
 body {
-	height: 100%;
-}
-
-body {
-  
+  height: 100%;
 }
 
 .sr-only {
@@ -20,26 +16,29 @@ body {
   overflow: hidden;
 }
 
-.wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: $default;
+  background-color: $white;
 }
 
 .main {
-	flex: 1 0 auto;
-}
-.footer {
-	flex: 0 0 auto;
+  flex: 1 0 auto;
 }
 
-.container{
-  max-width: 1200px;
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 15px;
 }
-
-
-
-
-
