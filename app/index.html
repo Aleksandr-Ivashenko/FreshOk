@@ -5,23 +5,128 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ФРЕШОК онлайн-маркет</title>
+  <title>ФРЕШОК онлайн-маркет самых свежих продуктов</title>
   <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico">
-  <link type="image/png" sizes="16x16" rel="icon" href="../images/icons/16x16.png">
-  <link type="image/png" sizes="32x32" rel="icon" href="../images/icons/32x32.png">
-  <link type="image/png" sizes="96x96" rel="icon" href="../images/icons/96x96.png">
-  <link type="image/png" sizes="72x72" rel="icon" href="../images/icons/android-icon-72x72.png">
-  <link type="image/png" sizes="144x144" rel="icon" href="../images/icons/android-icon-144x144.png">
-  <link type="image/png" sizes="192x192" rel="icon" href="../images/icons/android-icon-192x192.png">
-  <link sizes="76x76" rel="apple-touch-icon" href="../images/icons/apple-icon-76x76.png">
-  <link sizes="144x144" rel="apple-touch-icon" href="../images/icons/apple-icon-144x144.png">
-  <link sizes="192x192" rel="apple-touch-icon" href="../images/icons/apple-icon-192x192.png">
+  <link type="image/png" sizes="16x16" rel="icon" href="../images/favicons/16x16.png">
+  <link type="image/png" sizes="32x32" rel="icon" href="../images/favicons/32x32.png">
+  <link type="image/png" sizes="96x96" rel="icon" href="../images/favicons/96x96.png">
+  <link type="image/png" sizes="72x72" rel="icon" href="../images/favicons/android-icon-72x72.png">
+  <link type="image/png" sizes="144x144" rel="icon" href="../images/favicons/android-icon-144x144.png">
+  <link type="image/png" sizes="192x192" rel="icon" href="../images/favicons/android-icon-192x192.png">
+  <link sizes="76x76" rel="apple-touch-icon" href="../images/favicons/apple-icon-76x76.png">
+  <link sizes="144x144" rel="apple-touch-icon" href="../images/favicons/apple-icon-144x144.png">
+  <link sizes="192x192" rel="apple-touch-icon" href="../images/favicons/apple-icon-192x192.png">
+
+
   <!--правильно ли подключены favicon для разных устройств???-->
+
+
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
-  <header class="header"></header>
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <nav class="header__top-inner">
+          <!--не является ли ошибкой использывание тега nav именно здесь, или в nav нужно было обернуть только menu????-->
+          <div class="header__connection">
+            <a class="header__delivery-time" href="#">
+              адрес и время доставки
+            </a>
+
+            <a class="header__phone" href="tel:+7907288365">
+              горячая линия 24/7
+            </a>
+          </div>
+
+          <ul class="menu">
+            <li class="menu__item">
+              <a class="menu__link" href="#">доставка</a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="#">о нас</a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="#">новости</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="header__navigation">
+      <div class="container">
+        <nav class="header__navigation--inner">
+          <a class="logo" href="#">
+            <img class="logo__img" width="200" height="60" src="images/logo.svg" alt="Наш логотип">
+          </a>
+
+          <div class="dropdown">
+            <button class="dropdown__btn" type="button">Каталог продуктов</button>
+
+            <ul class="dropdown__list">
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Овощи и фрукты</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Бакалея</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Молочные продукты</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Хлеб</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Мясо</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Колбаса</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Рыба</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Алкоголь</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Напитки</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Торты</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Мясо</a>
+              </li>
+              <li class="dropdown__item">
+                <a class="dropdown__link" href="#">Чай, кофе</a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="search">
+            <input class="search__input" type="search" name="search" placeholder="Найти в магазине ...">
+            <button class="search__btn" type="submit">поиск</button>
+          </form>
+
+          <ul class="header__actions">
+            <li class="header__item">
+              <!--имело ли смысл здесь задать имена классов header__actions-item и header__actions-link соответственно что бы было очевидно что они относятся к этому блоку????-->
+              <a class="header__link header__link--user" href="#"></a>
+            </li>
+            <li class="header__item">
+              <a class="header__link header__link--favorite" href="#"></a>
+            </li>
+            <li class="header__item">
+              <a class="header__link header__link--cart" href="#"></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
   <main class="main"></main>
   <footer class="footer"></footer>
 
