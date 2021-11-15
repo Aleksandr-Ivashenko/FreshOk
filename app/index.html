@@ -16,8 +16,6 @@
   <link sizes="76x76" rel="apple-touch-icon" href="../images/favicons/apple-icon-76x76.png">
   <link sizes="144x144" rel="apple-touch-icon" href="../images/favicons/apple-icon-144x144.png">
   <link sizes="192x192" rel="apple-touch-icon" href="../images/favicons/apple-icon-192x192.png">
-
-
   <!--правильно ли подключены favicon для разных устройств???-->
 
 
@@ -31,24 +29,24 @@
         <nav class="header__top-inner">
           <!--не является ли ошибкой использывание тега nav именно здесь, или в nav нужно было обернуть только menu????-->
           <div class="header__connection">
-            <a class="header__delivery-time" href="#">
+            <a class="header__delivery-time state-navigation" href="#">
               адрес и время доставки
             </a>
 
-            <a class="header__phone" href="tel:+7907288365">
+            <a class="header__phone state-navigation" href="tel:+7907288365">
               горячая линия 24/7
             </a>
           </div>
 
           <ul class="menu">
             <li class="menu__item">
-              <a class="menu__link" href="#">доставка</a>
+              <a class="menu__link state-navigation" href="#">доставка</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">о нас</a>
+              <a class="menu__link state-navigation" href="#">о нас</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">новости</a>
+              <a class="menu__link state-navigation" href="#">новости</a>
             </li>
           </ul>
         </nav>
@@ -58,7 +56,7 @@
     <div class="header__navigation">
       <div class="container">
         <nav class="header__navigation--inner">
-          <a class="logo" href="#">
+          <a class="logo state-navigation state-navigation--logo" href="#">
             <img class="logo__img" width="200" height="60" src="images/logo.svg" alt="Наш логотип">
           </a>
 
@@ -106,7 +104,9 @@
           </div>
 
           <form class="search">
-            <input class="search__input" type="search" name="search" placeholder="Найти в магазине ...">
+            <label class="search_label">
+              <input class="search__input" type="search" name="search" placeholder="Найти в магазине ...">
+            </label>
             <button class="search__btn" type="submit">поиск</button>
           </form>
 
@@ -128,10 +128,8 @@
   </header>
 
   <main class="main"></main>
+
   <footer class="footer"></footer>
-
-
-
 
 
   <script src="js/main.min.js"></script>

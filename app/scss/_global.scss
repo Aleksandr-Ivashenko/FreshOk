@@ -42,3 +42,31 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.state-navigation {
+  border-radius: 3px;
+  transition: color 0.5s, opacity 0.5s, box-shadow 0.5s;
+  outline: transparent;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 3px #EFF6E7;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    color: $green-200;
+  }
+}
+
+.state-navigation--logo {
+  &:hover {
+    opacity: 0.4;
+  }
+  &:active {
+    transition: opacity 0.2s;
+    opacity: 0.7;
+  }
+}
