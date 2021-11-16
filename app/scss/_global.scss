@@ -20,25 +20,257 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
-  color: $default;
+  color: $dark-900;
   background-color: $white;
 }
 
-.main {
-  flex: 1 0 auto;
-}
+// .main {
+//   flex: 1 0 auto;
+// }
 
-.footer {
-  flex: 0 0 auto;
-}
+// .footer {
+//   flex: 0 0 auto;
+// }
 
 .container {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.state-navigation {
+  border-radius: 3px;
+  transition: color 0.5s, opacity 0.5s, box-shadow 0.5s, background-color 0.5s;
+  outline: transparent;
+
+  &:focus {
+    box-shadow: 0 0 0 3px $green-100;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    color: $green-200;
+  }
+}
+
+// .state-btn {
+//   border-radius: 6px;
+//   transition: color 0.5s, background-color 0.5s, box-shadow 0.5s;
+//   outline: transparent;
+
+//   &:focus {
+//     box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.5);
+//   }
+
+//   &:hover {
+//     background-color: #4D810C;
+//   }
+
+//   &:active {
+//     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+//     color: rgba(255, 255, 255, 0.5);
+//   }
+// }
+
+
+/*  блоки который могут быть переиспользованы лучше вносить в файл global или же всё таки в style???  */
+.menu {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+}
+
+.logo {
+  &:hover {
+    opacity: 0.4;
+  }
+
+  &:active {
+    transition: opacity 0.2s;
+    opacity: 0.7;
+  }
+}
+
+.dropdown {
+  position: relative;
+
+  &__btn {
+    position: relative;
+    padding: 15px 40px 15px 60px;
+    color: $green-900;
+    background-color: $white;
+    border-radius: 6px;
+    transition: background-color 0.5s, border-radius 0.5s;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &::before {
+      top: 15px;
+      left: 18px;
+      width: 25px;
+      height: 17px;
+      background-image: url('../images/icon-dropdown-left.svg');
+      /*  есть ли здесь смысл задавать эти элементы не картинками, а через span  */
+    }
+
+    &::after {
+      top: 21px;
+      right: 17px;
+      width: 10px;
+      height: 10px;
+      background-image: url('../images/icon-dropdown-right.svg');
+    }
+
+    &:hover {
+      background-color: $green-200;
+    }
+  }
+
+  &__btn--active {
+    border-radius: 6px 6px 0 0;
+    background-color: $green-200;
+  }
+
+  &__list {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+  }
+
+  &__list--active {
+    max-height: 615px;
+  }  /*  когда выпадающее меню скрыто, то его пункты всё равно выделяются через tab. Как это можно выключить? Может нужно скрывать его другим способом и мой не подходи. Если что этот способ просто загуглил.  */
+
+  &__item {
+    background-color: $white;
+    border: 1px solid #ebebeb;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding: 15px 57px 15px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $black;
+    outline: transparent;
+    transition: box-shadow 0.5s, color 0.5s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 3px;
+      height: 100%;
+      background-color: transparent;
+      transition: background-color 0.5s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:hover {
+      color: $green-900;
+
+      &::before {
+        background-color: $green-900;
+      }
+    }
+
+    &:active {
+      color: $silver-600;
+
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+
+}
+
+.search {
+  display: flex;
+  max-width: 576px;
+  width: 100%;
+
+  &_label {
+    position: relative;
+    width: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      width: 20px;
+      height: 20px;
+      background-image: url('../images/icon-search.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 54px;
+    padding-left: 50px;
+    background-color: $white;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    transition: background-color 0.5s;
+
+    &::placeholder {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: $dark-800;
+    }
+
+    /*  в стайлгайде не у всех элементов есть состояния, например поле для поиска. Оставлять их в таком случае без стилей??  */
+  }
+
+  &__btn {
+    padding: 15px 52px;
+    text-transform: uppercase;
+    color: $white;
+    background-color: $dark-800;
+    border-radius: 0 6px 6px 0;
+    transition: box-shadow 0.5s, background-color 0.5s;
+    outline: transparent;
+
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($white, 0.5);
+    }
+
+    &:hover {
+      background-color: rgba(49, 53, 43, 0.85);
+    }
+
+    &:active {
+      box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
 }

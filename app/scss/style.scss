@@ -3,6 +3,119 @@
 @import 'vars';
 @import 'global';
 
+.header {
+  &__top {
+    padding: 15px 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: $white;
+    background-color: $dark-800;
+  }
+
+  &__top-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__delivery-time {
+    position: relative;
+    padding-left: 45px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -7px;
+      left: 0;
+      width: 32px;
+      height: 22px;
+      background-image: url('../images/icon-delivery-time.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__phone {
+    position: relative;
+    margin-left: 45px;
+    padding-left: 35px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: 0;
+      width: 22px;
+      height: 22px;
+      background-image: url('../images/icon-phone.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__navigation {
+    padding: 25px 0;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    background-color: $green-900;
+  }
+
+  &__navigation--inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
+    /*  этот отступ задал для pixel perfect  */
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    &:last-child {
+      margin-right: 5px;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding: 9px 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      opacity: 1;
+    }
+
+    &:active {
+      opacity: 0.1;
+    }
+  }
+
+  &__link--user {
+    background-image: url('../images/icon-user.svg');
+  }
+
+  &__link--favorite {
+    background-image: url('../images/icon-favorite.svg');
+  }
+
+  &__link--cart {
+    background-image: url('../images/icon-cart.svg');
+  }
+}
+
+
 
 
 @import 'media';
