@@ -4,13 +4,13 @@
 @import 'global';
 
 .header {
+  color: $white;
   &__top {
     padding: 15px 0;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    color: $white;
     background-color: $dark-800;
   }
 
@@ -26,13 +26,14 @@
     &::before {
       content: '';
       position: absolute;
-      top: -7px;
-      left: 0;
-      width: 32px;
-      height: 22px;
+      top: -17px;
+      left: -5px;
+      width: 44px;
+      height: 44px;
       background-image: url('../images/icon-delivery-time.svg');
+      background-size: 32px 22px;
+      background-position: center;
       background-repeat: no-repeat;
-      background-size: contain;
     }
   }
 
@@ -44,13 +45,14 @@
     &::before {
       content: '';
       position: absolute;
-      top: -3px;
-      left: 0;
-      width: 22px;
-      height: 22px;
+      top: -15px;
+      left: -10px;
+      width: 44px;
+      height: 44px;
       background-image: url('../images/icon-phone.svg');
+      background-size: 22px;
+      background-position: center;
       background-repeat: no-repeat;
-      background-size: contain;
     }
   }
 
@@ -70,13 +72,13 @@
   &__actions {
     display: flex;
     align-items: center;
-    margin-left: 35px;
+    margin-left: 15px;
     /*  этот отступ задал для pixel perfect  */
   }
 
   &__item {
     &:not(:last-child) {
-      margin-right: 30px;
+      margin-right: 10px;
     }
 
     &:last-child {
@@ -107,14 +109,359 @@
   }
 
   &__link--favorite {
+    position: relative;
     background-image: url('../images/icon-favorite.svg');
+
+    &::before {
+      content: '12';
+      font-family: Open Sans, sans-serif;
+      font-style: normal;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.03em;
+      color: #CF3E3B;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /*  это временное решения, так как буду делать функионал для иконок  */
+      position: absolute;
+      top: 5px;
+      left: 7px;
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
   }
 
   &__link--cart {
+    position: relative;
     background-image: url('../images/icon-cart.svg');
+
+    &::before {
+      content: '12';
+      font-family: Open Sans, sans-serif;
+      font-style: normal;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.03em;
+      color: #CF3E3B;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /*  это временное решения, так как буду делать функионал для иконок  */
+      position: absolute;
+      top: 5px;
+      left: 7px;
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
   }
 }
 
+.menu {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+}
+
+.logo {
+  &:hover {
+    opacity: 0.4;
+  }
+
+  &:active {
+    transition: opacity 0.2s;
+    opacity: 0.7;
+  }
+}
+
+.dropdown {
+  position: relative;
+
+  &__btn {
+    position: relative;
+    padding: 15px 39px 15px 60px;
+    color: $green-900;
+    background-color: $white;
+    border-radius: 6px;
+    transition: background-color 0.5s, border-radius 0.5s;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      top: 15px;
+      left: 18px;
+      width: 25px;
+      height: 17px;
+      background-image: url('../images/icon-dropdown-left.svg');
+      /*  есть ли здесь смысл задавать эти элементы не картинками, а через span  */
+    }
+
+    &::after {
+      top: 21px;
+      right: 17px;
+      width: 10px;
+      height: 10px;
+      background-image: url('../images/icon-dropdown-right.svg');
+      transition: transform 0.5s;
+    }
+
+    &:hover {
+      background-color: $green-200;
+    }
+  }
+
+  &__btn--active {
+    /*  пока что не полностью готов функционал выпадающего меню  */
+    background-color: $green-200;
+    border-radius: 6px 6px 0 0;
+
+    &::after {
+      transform: rotateX(180deg) translateY(50%);
+    }
+  }
+
+  &__list {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+  }
+
+  &__list--active {
+    max-height: 615px;
+    /*  когда выпадающее меню скрыто, то его пункты всё равно выделяются через tab. Как это можно выключить? Может нужно скрывать его другим способом и мой не подходи. Если что этот способ просто загуглил.  */
+  }
+
+  &__item {
+    background-color: $white;
+    border: 1px solid #ebebeb;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding: 15px 56px 15px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $black;
+    outline: transparent;
+    transition: box-shadow 0.5s, color 0.5s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 3px;
+      height: 100%;
+      background-color: transparent;
+      transition: background-color 0.5s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:hover {
+      color: $green-900;
+
+      &::before {
+        background-color: $green-900;
+      }
+    }
+
+    &:active {
+      color: $silver-600;
+
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.search {
+  display: flex;
+  max-width: 576px;
+  width: 100%;
+
+  &_label {
+    position: relative;
+    width: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 12px;
+      width: 20px;
+      height: 20px;
+      background-image: url('../images/icon-search.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 54px;
+    padding-left: 50px;
+    background-color: $white;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    transition: background-color 0.5s;
+
+    &::placeholder {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: $dark-800;
+    }
+
+    /*  в стайлгайде не у всех элементов есть состояния (hover и прочее), например поле для поиска. Оставлять их в таком случае без стилей??  */
+  }
+
+  &__btn {
+    padding: 15px 52px;
+    text-transform: uppercase;
+    background-color: $dark-800;
+    border-radius: 0 6px 6px 0;
+
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($white, 0.5);
+    }
+
+    &:hover {
+      background-color: rgba(49, 53, 43, 0.85);
+    }
+  }
+}
+
+.footer {
+  padding-top: 30px;
+  letter-spacing: 0.03em;
+  color: $white;
+  background-color: $dark-800;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px 0;
+  }
+
+  &__links {
+    margin-right: -75px;
+    /*  есть ли другой способ центрировать блок с использованием column-count ??  */
+    column-count: 3;
+    column-gap: 75px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__phone,
+  &__address {
+    margin-bottom: 18px;
+  }
+
+  &__bottom {
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__payment {
+    display: flex;
+  }
+
+  &__img {
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+}
+
+.subscrip {
+  max-width: 306px;
+
+  &__label {
+    display: block;
+    margin-bottom: 15px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  &__inner {
+    display: flex;
+  }
+
+  &__input {
+    max-width: 180px;
+    padding: 12px;
+    background-color: $white;
+    border: none;
+    border-radius: 6px 0 0 6px;
+  }
+
+  &__btn {
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0 6px 6px 0;
+  }
+}
+
+.social {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat
+  }
+}
 
 
 

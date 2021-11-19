@@ -31,10 +31,12 @@
           <div class="header__connection">
             <a class="header__delivery-time state-navigation" href="#">
               адрес и время доставки
+              <span class="sr-only">уточнить адрес и время доставки</span>
             </a>
 
             <a class="header__phone state-navigation" href="tel:+7907288365">
               горячая линия 24/7
+              <span class="sr-only">позвонить</span>
             </a>
           </div>
 
@@ -107,19 +109,26 @@
             <label class="search_label">
               <input class="search__input" type="search" name="search" placeholder="Найти в магазине ...">
             </label>
-            <button class="search__btn" type="submit">поиск</button>
+
+            <button class="search__btn btn" type="submit">поиск</button>
           </form>
 
           <ul class="header__actions">
             <li class="header__item">
               <!--имело ли смысл здесь задать имена классов header__actions-item и header__actions-link соответственно что бы было очевидно что они относятся к этому блоку????-->
-              <a class="header__link header__link--user state-navigation" href="#"></a>
+              <a class="header__link header__link--user state-navigation" href="#">
+                <span class="sr-only">перейти в личный кабинет</span>
+              </a>
             </li>
             <li class="header__item">
-              <a class="header__link header__link--favorite state-navigation" href="#"></a>
+              <a class="header__link header__link--favorite state-navigation" href="#">
+                <span class="sr-only">открыть понравившееся</span>
+              </a>
             </li>
             <li class="header__item">
-              <a class="header__link header__link--cart state-navigation" href="#"></a>
+              <a class="header__link header__link--cart state-navigation" href="#">
+                <span class="sr-only">открыть корзину</span>
+              </a>
             </li>
           </ul>
         </nav>
@@ -129,7 +138,104 @@
 
   <main class="main"></main>
 
-  <footer class="footer"></footer>
+  <footer class="footer">
+    <div class="container">
+      <a class="logo state-navigation" href="#">
+        <img class="logo__img" width="200" height="60" src="images/logo.svg" alt="Наш логотип">
+      </a>
+
+      <div class="footer__top">
+        <form class="subscrip">
+          <label class="subscrip__label" for="subscrip">Следите за нашими акциями</label>
+
+          <div class="subscrip__inner">
+            <input class="subscrip__input" id="subscrip" name="subscrip" type="email" placeholder="email@email.com"
+              required>
+
+            <button class="subscrip__btn btn" type="submit">подписаться</button>
+          </div>
+        </form>
+
+        <ul class="footer__links">
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">О нас</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">Контакты</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">Публичная оферта</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">Оплата и доставка</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">Вакансии</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">Акции</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">Отзывы</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link state-navigation" href="#">Новости</a>
+          </li>
+        </ul>
+
+        <address class="footer__contacts">
+          <a class="footer__phone state-navigation" href="tel: +7907288365">
+            Горячая линия +7 907 288 365
+            <span class="sr-only">позвонить</span>
+          </a>
+
+          <a class="footer__address state-navigation" href="https://goo.gl/maps/w2UyKSPMbcouMgxi7" target="blank">
+            Санкт-Петербург, ул. Ленина, 1
+            <span class="sr-only">посмотреть адрес</span>
+          </a>
+
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__link state-navigation" href="#" target="blank" style="background-image: url(images/social/facebook.svg);">
+                <span class="sr-only">Написать в facebook</span>
+              </a>
+            </li>
+
+            <li class="social__item">
+              <a class="social__link state-navigation" href="#" target="blank" style="background-image: url(images/social/youtube.svg);">
+                <span class="sr-only">Перейти на youtube канал</span>
+              </a>
+            </li>
+
+            <li class="social__item">
+              <a class="social__link state-navigation" href="#" target="blank" style="background-image: url(images/social/telegram.svg);">
+                <span class="sr-only">Написать в telegram</span>
+              </a>
+            </li>
+
+            <li class="social__item">
+              <a class="social__link state-navigation" href="#" target="blank" style="background-image: url(images/social/instagram.svg);">
+                <span class="sr-only">Написать в instagram</span>
+              </a>
+            </li>
+          </ul>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__bottom-inner">
+          <span class="footer__copyright">&copy; 2021 ФРЕШОК</span>
+
+          <div class="footer__payment">
+            <img class="footer__img" width="93" height="29" src="images/visa.svg" alt="логотип visa">
+            <img class="" width="49" height="29" src="images/mastercard.svg" alt="логотип mastercard">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
   <script src="js/main.min.js"></script>
