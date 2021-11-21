@@ -10,7 +10,7 @@ const del           = require('del');
 
 function browsersync() {
   browserSync.init({
-    server : {
+    server: {
       baseDir: 'app/'
     },
     notify: false
@@ -34,6 +34,7 @@ function styles() {
 function scripts() {
   return src([
       'node_modules/jquery/dist/jquery.js',
+      'node_modules/slick-slider/slick/slick.js',
       'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
@@ -46,18 +47,28 @@ function images() {
   return src('app/images/**/*')
     .pipe(imagemin(
       [
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.mozjpeg({ quality: 75, progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
+        imagemin.gifsicle({
+          interlaced: true
+        }),
+        imagemin.mozjpeg({
+          quality: 75,
+          progressive: true
+        }),
+        imagemin.optipng({
+          optimizationLevel: 5
+        }),
         imagemin.svgo({
-          plugins: [
-            { removeViewBox: true },
-            { cleanupIDs: false }
+          plugins: [{
+              removeViewBox: true
+            },
+            {
+              cleanupIDs: false
+            }
           ]
         })
       ]
-      ))
-      .pipe(dest('dist/images'))
+    ))
+    .pipe(dest('dist/images'))
 }
 
 function cleanDist() {
@@ -66,12 +77,14 @@ function cleanDist() {
 
 function build() {
   return src([
-    'app/css/style.min.css',
-    'app/fonts/**/*',
-    'app/js/main.min.js',
-    'app/*.html'
-  ], {base: 'app'})
-  .pipe(dest('dist'))
+      'app/css/style.min.css',
+      'app/fonts/**/*',
+      'app/js/main.min.js',
+      'app/*.html'
+    ], {
+      base: 'app'
+    })
+    .pipe(dest('dist'))
 }
 
 function watching() {
@@ -88,4 +101,4 @@ exports.watching = watching;
 exports.cleanDist = cleanDist;
 
 exports.build = series(cleanDist, images, build);
-exports.default = parallel(styles ,scripts ,browsersync, watching);
+exports.default = parallel(styles, scripts, browsersync, watching);
