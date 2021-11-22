@@ -28,26 +28,26 @@
         <nav class="header__top-inner">
           <!--не является ли ошибкой использывание тега nav именно здесь, или в nav нужно было обернуть только menu????-->
           <div class="header__connection">
-            <a class="header__delivery-time state-navigation" href="#">
+            <a class="header__delivery-time state state-navigation" href="#">
               адрес и время доставки
               <span class="sr-only">уточнить адрес и время доставки</span>
             </a>
 
-            <a class="header__phone state-navigation" href="tel:+7907288365">
+            <a class="header__phone state state-navigation" href="tel:+7907288365">
               горячая линия 24/7
               <span class="sr-only">позвонить</span>
             </a>
           </div>
 
-          <ul class="menu">
-            <li class="menu__item">
-              <a class="menu__link state-navigation" href="#">доставка</a>
+          <ul class="header__menu">
+            <li class="header__menu-item">
+              <a class="header__menu-link state state-navigation" href="#">доставка</a>
             </li>
-            <li class="menu__item">
-              <a class="menu__link state-navigation" href="#">о нас</a>
+            <li class="header__menu-item">
+              <a class="header__menu-link state state-navigation" href="#">о нас</a>
             </li>
-            <li class="menu__item">
-              <a class="menu__link state-navigation" href="#">новости</a>
+            <li class="header__menu-item">
+              <a class="header__menu-link state state-navigation" href="#">новости</a>
             </li>
           </ul>
         </nav>
@@ -57,7 +57,7 @@
     <div class="header__navigation">
       <div class="container">
         <nav class="header__navigation--inner">
-          <a class="logo state-navigation" href="#">
+          <a class="logo state state-navigation" href="#">
             <img class="logo__img" width="200" height="60" src="images/logo.svg" alt="Наш логотип">
           </a>
 
@@ -113,19 +113,19 @@
           </form>
 
           <ul class="header__actions">
-            <li class="header__item">
+            <li class="header__actions-item">
               <!--имело ли смысл здесь задать имена классов header__actions-item и header__actions-link соответственно что бы было очевидно что они относятся к этому блоку????-->
-              <a class="header__link header__link--user state-navigation" href="#">
+              <a class="header__actions-link header__link--user state state-navigation" href="#">
                 <span class="sr-only">перейти в личный кабинет</span>
               </a>
             </li>
-            <li class="header__item">
-              <a class="header__link header__link--favorite state-navigation" href="#">
+            <li class="header__actions-item">
+              <a class="header__actions-link header__link--favorite state state-navigation" href="#">
                 <span class="sr-only">открыть понравившееся</span>
               </a>
             </li>
-            <li class="header__item">
-              <a class="header__link header__link--cart state-navigation" href="#">
+            <li class="header__actions-item">
+              <a class="header__actions-link header__link--cart state state-navigation" href="#">
                 <span class="sr-only">открыть корзину</span>
               </a>
             </li>
@@ -234,11 +234,278 @@
         </ul>
       </div>
     </div>
+
+    <section class="catalog">
+      <div class="container">
+        <h1 class="title">топовые товары</h1>
+
+        <ul class="filter">
+          <li class="filter__item">
+            <button class="filter__btn state state-filter" type="button" data-filter="all">
+              все товары
+            </button>
+          </li>
+          <li class="filter__item">
+            <button class="filter__btn state state-filter" type="button" data-filter=".category-a">
+              фрукты
+            </button>
+          </li>
+          <li class="filter__item">
+            <button class="filter__btn state state-filter" type="button" data-filter=".category-b">
+              овощи
+            </button>
+          </li>
+          <li class="filter__item">
+            <button class="filter__btn state state-filter" type="button" data-filter=".category-c">
+              напитки
+            </button>
+          </li>
+          <li class="filter__item">
+            <button class="filter__btn state state-filter" type="button" data-filter=".category-d">
+              бакалея
+            </button>
+          </li>
+        </ul>
+
+        <div class="catalog__content">
+          <article class="card mix category-a" data-order="1">
+            <div class="card__top">
+              <div class="card__badges">
+                <span class="card__badge card__badge--novelty">новинка</span>
+                <span class="card__badge card__badge--half">-50%</span>
+                <!--здесь использую такой имя класса, так как на "50%" gulp ругается-->
+                <span class="card__badge card__badge--hit" style="display: none;">хит</span>
+              </div>
+
+              <button class="card__like" type="button">
+                <span class="sr-only">добавить товар в понравившееся</span>
+              </button>
+              <!--правильный ли здесь тип кнопки???-->
+            </div>
+
+            <img class="card__img" width="298" height="215" src="images/catalog/1.png" alt="описание изображения товара">
+
+            <h3 class="card__title">Ананас, 1кг</h3>
+
+            <!-- <div class="card__bottom">
+              <span class="card__discount">1999 ₽</span>
+              <span class="card__price">999 ₽</span>
+
+              <button class="card__cart" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </div> -->
+          </article>
+
+          <!--card__bottom не успел доделать, планировал цену и цену со скидкой делать по такому же принципу как и бейджи-->
+
+          <article class="card mix category-a" data-order="1">
+            <div class="card__top">
+              <div class="card__badges">
+                <span class="card__badge card__badge--novelty" style="display: none;">новинка</span>
+                <span class="card__badge card__badge--half" style="display: none;">-50%</span>
+                <span class="card__badge card__badge--hit" style="display: none;">хит</span>
+              </div>
+
+              <button class="card__like" type="button">
+                <span class="sr-only">добавить товар в понравившееся</span>
+              </button>
+            </div>
+
+            <img class="card__img" width="298" height="215" src="images/catalog/2.png"
+              alt="описание изображения товара">
+
+            <h3 class="card__title">Лимон, 1кг</h3>
+
+            <!-- <div class="card__bottom">
+              <span class="card__discount"></span>
+              <span class="card__price">199 ₽</span>
+
+              <button class="card__cart" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </div> -->
+          </article>
+
+          <article class="card mix category-a" data-order="1">
+            <div class="card__top">
+              <div class="card__badges">
+                <span class="card__badge card__badge--novelty" style="display: none;">новинка</span>
+                <span class="card__badge card__badge--half" style="display: none;">-50%</span>
+                <span class="card__badge card__badge--hit">хит</span>
+              </div>
+
+              <button class="card__like" type="button">
+                <span class="sr-only">добавить товар в понравившееся</span>
+              </button>
+            </div>
+
+            <img class="card__img" width="298" height="215" src="images/catalog/3.png"
+              alt="описание изображения товара">
+
+            <h3 class="card__title">Питахайя красная с белой мякотью, 1шт</h3>
+
+            <!-- <div class="card__bottom">
+              <span class="card__discount"></span>
+              <span class="card__price">1019 ₽</span>
+
+              <button class="card__cart" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </div> -->
+          </article>
+
+          <article class="card mix category-d" data-order="4">
+            <div class="card__top">
+              <div class="card__badges">
+                <span class="card__badge card__badge--novelty" style="display: none;">новинка</span>
+                <span class="card__badge card__badge--half" style="display: none;">-50%</span>
+                <span class="card__badge card__badge--hit" style="display: none;">хит</span>
+              </div>
+
+              <button class="card__like" type="button">
+                <span class="sr-only">добавить товар в понравившееся</span>
+              </button>
+            </div>
+
+            <img class="card__img" width="298" height="215" src="images/catalog/4.png"
+              alt="описание изображения товара">
+
+            <h3 class="card__title">
+              Кетчуп томатный детский органический Bio-Zentrale 500мл, 1 шт
+            </h3>
+
+            <!-- <div class="card__bottom">
+              <span class="card__discount"></span>
+              <span class="card__price">600 ₽</span>
+
+              <button class="card__cart" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </div> -->
+          </article>
+
+          <article class="card mix category-b" data-order="2">
+            <div class="card__top">
+              <div class="card__badges">
+                <span class="card__badge card__badge--novelty" style="display: none;">новинка</span>
+                <span class="card__badge card__badge--half" style="display: none;">-50%</span>
+                <span class="card__badge card__badge--hit">хит</span>
+              </div>
+
+              <button class="card__like" type="button">
+                <span class="sr-only">добавить товар в понравившееся</span>
+              </button>
+            </div>
+
+            <img class="card__img" width="298" height="215" src="images/catalog/5.png"
+              alt="описание изображения товара">
+
+            <h3 class="card__title">Морковь молодая с бабушкиной грядки, 1кг</h3>
+
+            <!-- <div class="card__bottom">
+              <span class="card__discount"></span>
+              <span class="card__price">49 ₽</span>
+
+              <button class="card__cart" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </div> -->
+          </article>
+
+          <article class="card mix category-c" data-order="3">
+            <div class="card__top">
+              <div class="card__badges">
+                <span class="card__badge card__badge--novelty" style="display: none;">новинка</span>
+                <span class="card__badge card__badge--half">-50%</span>
+                <span class="card__badge card__badge--hit" style="display: none;">хит</span>
+              </div>
+
+              <button class="card__like" type="button">
+                <span class="sr-only">добавить товар в понравившееся</span>
+              </button>
+            </div>
+
+            <img class="card__img" width="298" height="215" src="images/catalog/6.png"
+              alt="описание изображения товара">
+
+            <h3 class="card__title">
+              Напиток сокосодержащий Sanpellegrino Aranciata Orange Красный апельсин безалкогольн...
+            </h3>
+
+            <!-- <div class="card__bottom">
+              <span class="card__discount">299 ₽</span>
+              <span class="card__price">199 ₽</span>
+
+              <button class="card__cart" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </div> -->
+          </article>
+
+          <article class="card mix category-d" data-order="4"">
+            <div class=" card__top">
+            <div class="card__badges">
+              <span class="card__badge card__badge--novelty">новинка</span>
+              <span class="card__badge card__badge--half" style="display: none;">-50%</span>
+              <span class="card__badge card__badge--hit" style="display: none;">хит</span>
+            </div>
+
+            <button class="card__like" type="button">
+              <span class="sr-only">добавить товар в понравившееся</span>
+            </button>
+        </div>
+
+        <img class="card__img" width="298" height="215" src="images/catalog/7.png" alt="описание изображения товара">
+
+        <h3 class="card__title">Кофе с коноплей органический Caffé Salomoni 250г</h3>
+
+        <!-- <div class="card__bottom">
+          <span class="card__discount"></span>
+          <span class="card__price">877 ₽</span>
+
+          <button class="card__cart" type="button">
+            <span class="sr-only">добавить товар в корзину</span>
+          </button>
+        </div> -->
+        </article>
+
+        <article class="card mix category-b" data-order="2">
+          <div class="card__top">
+            <div class="card__badges">
+              <span class="card__badge card__badge--novelty">новинка</span>
+              <span class="card__badge card__badge--half" style="display: none;">-50%</span>
+              <span class="card__badge card__badge--hit" style="display: none;">хит</span>
+            </div>
+
+            <button class="card__like" type="button">
+              <span class="sr-only">добавить товар в понравившееся</span>
+            </button>
+          </div>
+
+          <img class="card__img" width="298" height="215" src="images/catalog/8.png" alt="описание изображения товара">
+
+          <h3 class="card__title">Перец оранжевый, 1кг</h3>
+
+          <!-- <div class="card__bottom">
+            <span class="card__discount"></span>
+            <span class="card__price">349 ₽</span>
+
+            <button class="card__cart" type="button">
+              <span class="sr-only">добавить товар в корзину</span>
+            </button>
+          </div> -->
+        </article>
+      </div>
+
+      <button class="catalog__btn btn" type="button">Показать еще</button>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <a class="logo state-navigation" href="#">
+      <a class="logo state state-navigation" href="#">
         <img class="logo__img" width="200" height="60" src="images/logo.svg" alt="Наш логотип">
       </a>
 
@@ -256,66 +523,66 @@
 
         <ul class="footer__links">
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">О нас</a>
+            <a class="footer__link state state-navigation" href="#">О нас</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">Контакты</a>
+            <a class="footer__link state state-navigation" href="#">Контакты</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">Публичная оферта</a>
+            <a class="footer__link state state-navigation" href="#">Публичная оферта</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">Оплата и доставка</a>
+            <a class="footer__link state state-navigation" href="#">Оплата и доставка</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">Вакансии</a>
+            <a class="footer__link state state-navigation" href="#">Вакансии</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">Акции</a>
+            <a class="footer__link state state-navigation" href="#">Акции</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">Отзывы</a>
+            <a class="footer__link state state-navigation" href="#">Отзывы</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link state-navigation" href="#">Новости</a>
+            <a class="footer__link state state-navigation" href="#">Новости</a>
           </li>
         </ul>
 
         <address class="footer__contacts">
-          <a class="footer__phone state-navigation" href="tel: +7907288365">
+          <a class="footer__phone state state-navigation" href="tel: +7907288365">
             Горячая линия +7 907 288 365
             <span class="sr-only">позвонить</span>
           </a>
 
-          <a class="footer__address state-navigation" href="https://goo.gl/maps/w2UyKSPMbcouMgxi7" target="blank">
+          <a class="footer__address state state-navigation" href="https://goo.gl/maps/w2UyKSPMbcouMgxi7" target="blank">
             Санкт-Петербург, ул. Ленина, 1
             <span class="sr-only">посмотреть адрес</span>
           </a>
 
           <ul class="social">
             <li class="social__item">
-              <a class="social__link state-navigation" href="#" target="blank"
+              <a class="social__link state state-navigation" href="#" target="blank"
                 style="background-image: url(images/social/facebook.svg);">
                 <span class="sr-only">Написать в facebook</span>
               </a>
             </li>
 
             <li class="social__item">
-              <a class="social__link state-navigation" href="#" target="blank"
+              <a class="social__link state state-navigation" href="#" target="blank"
                 style="background-image: url(images/social/youtube.svg);">
                 <span class="sr-only">Перейти на youtube канал</span>
               </a>
             </li>
 
             <li class="social__item">
-              <a class="social__link state-navigation" href="#" target="blank"
+              <a class="social__link state state-navigation" href="#" target="blank"
                 style="background-image: url(images/social/telegram.svg);">
                 <span class="sr-only">Написать в telegram</span>
               </a>
             </li>
 
             <li class="social__item">
-              <a class="social__link state-navigation" href="#" target="blank"
+              <a class="social__link state state-navigation" href="#" target="blank"
                 style="background-image: url(images/social/instagram.svg);">
                 <span class="sr-only">Написать в instagram</span>
               </a>

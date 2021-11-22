@@ -42,4 +42,5 @@ $(function () {
   //     $('.slider__next').show();
   // });
 
+  var Mixer = mixitup('.catalog__content');
 })
