@@ -176,6 +176,9 @@
 }
 
 .logo {
+  display: block;
+  max-width: 200px;
+  
   &:hover {
     opacity: 0.4;
   }
@@ -553,7 +556,7 @@
 
     &:disabled .slider__arrow {
       fill: $silver-600;
-    }  /* почему то не работает disabled, пробовал по разному образаться к псевдоэлементу  */
+    }
   }
 
   &__prev {
@@ -568,6 +571,57 @@
     transition: fill 0.5s;
   }
 }
+
+.services {
+  padding: 50px 0 30px;
+  background-color: $silver-100;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 75px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__item--scooter::before {
+    background-image: url('../images/icon-scooter.svg');
+  }
+
+  &__item--box::before {
+    background-image: url('../images/icon-box.svg');
+  }
+
+  &__item--24-hours::before {
+    background-image: url('../images/icon-24-hours.svg');
+  }
+
+  &__caption {
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__text {
+    max-width: 185px;
+    color: $dark-500;
+  }
+}
+
 
 
 @import 'media';
