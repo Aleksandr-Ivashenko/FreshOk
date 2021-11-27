@@ -20,167 +20,73 @@
     justify-content: space-between;
   }
 
-  &__delivery-time {
-    position: relative;
-    padding-left: 45px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -17px;
-      left: -5px;
-      width: 44px;
-      height: 44px;
-      background-image: url('../images/icon-delivery-time.svg');
-      background-size: 32px 22px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
-
-  &__phone {
-    position: relative;
-    margin-left: 45px;
-    padding-left: 35px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: -10px;
-      width: 44px;
-      height: 44px;
-      background-image: url('../images/icon-phone.svg');
-      background-size: 22px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
-
   &__menu {
     display: flex;
   }
 
-  &__menu-item {
-    &:not(:last-child) {
-      margin-right: 25px;
-    }
+  &__menu-link {
+    padding: 10px 5px;
+
   }
 
-  &__navigation {
+  &__bottom {
     padding: 25px 0;
     font-weight: 600;
     background-color: $green-900;
   }
 
-  &__navigation--inner {
+  &__bottom-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  &__actions {
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
-    /*  этот отступ задал для pixel perfect  */
-  }
+}
 
-  &__actions-item {
-    &:not(:last-child) {
-      margin-right: 10px;
-    }
+.delivery-time {
+  position: relative;
+  padding: 10px 25px;
 
-    &:last-child {
-      margin-right: 5px;
-    }
-  }
-
-  &__actions-link {
-    display: block;
-    width: 50px;
-    height: 50px;
-    padding: 9px 15px;
-    background-repeat: no-repeat;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -17px;
+    width: 44px;
+    height: 44px;
+    background-image: url('../images/icon-delivery-time.svg');
+    background-size: 32px 22px;
     background-position: center;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      opacity: 1;
-    }
-
-    &:active {
-      opacity: 0.1;
-    }
+    background-repeat: no-repeat;
   }
+}
 
-  &__link--user {
-    background-image: url('../images/icon-user.svg');
-  }
+.phone {
+  position: relative;
+  padding: 10px 25px;
 
-  &__link--favorite {
-    position: relative;
-    background-image: url('../images/icon-favorite.svg');
-
-    &::before {
-      content: '12';
-      font-family: Open Sans, sans-serif;
-      font-style: normal;
-      font-size: 10px;
-      font-weight: 600;
-      line-height: 1;
-      color: #CF3E3B;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      /*  это временное решения, так как их нужно перести в html  */
-      position: absolute;
-      top: 5px;
-      left: 7px;
-      width: 18px;
-      height: 18px;
-      background-color: #fff;
-      border-radius: 50%;
-    }
-  }
-
-  &__link--cart {
-    position: relative;
-    background-image: url('../images/icon-cart.svg');
-
-    &::before {
-      content: '12';
-      font-family: Open Sans, sans-serif;
-      font-style: normal;
-      font-size: 10px;
-      font-weight: 600;
-      line-height: 1;
-      color: #CF3E3B;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 5px;
-      left: 7px;
-      width: 18px;
-      height: 18px;
-      background-color: #fff;
-      border-radius: 50%;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -13px;
+    width: 44px;
+    height: 44px;
+    background-image: url('../images/icon-phone.svg');
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 
 .logo {
   display: block;
   max-width: 200px;
+  border-radius: 3px;
+  outline: none;
 
-  &:hover {
-    opacity: 0.4;
-  }
-
-  &:active {
-    transition: opacity 0.2s;
-    opacity: 0.7;
+  &:focus {
+    box-shadow: 0 0 0 3px $green-100;
   }
 }
 
@@ -227,7 +133,6 @@
   }
 
   &__btn--active {
-    /*  пока что не полностью готов функционал выпадающего меню  */
     background-color: $green-200;
     border-radius: 6px 6px 0 0;
 
@@ -317,17 +222,19 @@
       background-image: url('../images/icon-search.svg');
       background-size: contain;
       background-repeat: no-repeat;
+      cursor: text;
     }
   }
 
   &__input {
     width: 100%;
     height: 54px;
-    padding-left: 50px;
+    padding: 15px 15px 15px 50px;
     background-color: $white;
     border: none;
     border-radius: 6px 0 0 6px;
     transition: background-color 0.5s;
+    outline: transparent;
 
     &::placeholder {
       font-family: 'Open Sans', sans-serif;
@@ -336,7 +243,9 @@
       color: $dark-800;
     }
 
-    /*  в стайлгайде не у всех элементов есть состояния (hover и прочее), например поле для поиска. Оставлять их в таком случае без стилей??  */
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($white, 0.5);
+    }
   }
 
   &__btn {
@@ -353,6 +262,72 @@
       background-color: rgba(49, 53, 43, 0.85);
     }
   }
+}
+
+.user-nav {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      margin-right: 5px;
+    }
+  }
+}
+
+
+.user {
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 9px 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 0.1;
+  }
+
+  &__num {
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    color: $red-900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+}
+
+.user--user {
+  background-image: url('../images/icon-user.svg');
+}
+
+.user--favorite {
+  position: relative;
+  background-image: url('../images/icon-favorite.svg');
+}
+
+.user--cart {
+  position: relative;
+  background-image: url('../images/icon-cart.svg');
 }
 
 .footer {
@@ -462,7 +437,7 @@
   }
 }
 
-.slider {
+.slider-hero {
   color: $dark-500;
 
   &__item {
@@ -492,14 +467,13 @@
   &__heading {
     max-width: 941px;
     font-family: 'Ruda', sans-serif;
-    /*  не могу понять почему не работают шрифты, всё делал как в уроке  */
     font-size: 60px;
     font-weight: 900;
     line-height: 1.3;
     text-transform: uppercase;
   }
 
-  &__heading--red {
+  &__red {
     color: $red-900;
   }
 
@@ -538,7 +512,7 @@
       background-color: $green-200;
     }
 
-    &:hover .slider__arrow {
+    &:hover .slider-hero__arrow {
       fill: $green-900;
     }
 
@@ -546,7 +520,7 @@
       background-color: $silver-200;
     }
 
-    &:disabled .slider__arrow {
+    &:disabled .slider-hero__arrow {
       fill: $silver-600;
       /*  что бы работало состояние disabled нужно добавить скрипт???  */
     }
@@ -577,6 +551,8 @@
   }
 
   &__item {
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
     padding-left: 75px;
 
@@ -616,7 +592,7 @@
   }
 }
 
-.catalog {
+.top-products {
   margin-bottom: 50px;
 
   &__content {
@@ -648,7 +624,7 @@
   }
 }
 
-.filter {
+.filter-home {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
@@ -683,18 +659,25 @@
   }
 }
 
-.card {
+.card-top {
   position: relative;
+  width: 300px;
+  height: 409px;
   margin: 0 10px 20px;
   padding: 15px 0;
   border: 1px solid rgba(17, 17, 17, 0.2);
   border-radius: 6px;
+  transition: border-color 0.5s;
+
+  &:hover {
+    border-color: $green-900;
+  }
 
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 40px;
+    height: 45px;
     margin: 0 15px;
   }
 
@@ -703,68 +686,109 @@
     flex-direction: column;
   }
 
-  &__badge {
-    max-width: fit-content;
-    padding: 3px 6px;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 1;
-    text-transform: uppercase;
-    color: $white;
-    border-radius: 6px;
+  &__like {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    outline: transparent;
+    transition: box-shadow 0.5s, background-color 0.5s;
 
-    &:not(:last-child) {
-      margin-bottom: 5px;
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.0001);
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:hover .card-top__icon {
+      fill: $yellow-900;
+    }
+
+    &:active .card-top__icon {
+      opacity: 0.5;
     }
   }
-
-  &__badge--novelty {
-    background-color: $green-900;
-  }
-
-  &__badge--half {
-    background-color: $red-900;
-  }
-
-  &__badge--hit {
-    background-color: $orange-900
-  }
-
-  &__like {
+  &__svg {
     width: 32px;
     height: 28px;
-    background-image: url('../images/icon-like.svg');
-    background-size: 32px 28px;
-    background-position: center;
-    background-repeat: no-repeat;
   }
 
-  &__img {
+  &__icon {
+    fill: $silver-600;
+    transition: fill 0.5s, opacity 0.5s;
+  }
+
+  &__image {
+    position: relative;
     margin-bottom: 20px;
   }
 
-  &__title {
-    max-width: 264px;
-    margin: 0 15px 50px;
-    font-weight: 600;
+  &__img {
+    padding: 0 2px;
+  }
+
+  &__link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.7s, opacity 0.9s;
+    opacity: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 48px;
+      height: 48px;
+      background-image: url('../images/icon-magnifier.svg');
+      background-size: 20px 20px;
+      background-color: $white;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__bottom {
-    height: 32px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 0 15px;
   }
 
-  &__discount {}
+  &__title {
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 600;
+  }
 
-  &__price {}
+  &__bottom-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__cart {
+    padding: 0;
     width: 32px;
     height: 32px;
     background-image: url('../images/icon-cart-btn.svg');
-    background-size: 32px 32px;
+    background-size: 16px 15px;
     background-position: center;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
+    border-radius: 3px;
   }
 }
 
