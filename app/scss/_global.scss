@@ -24,7 +24,6 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
-  letter-spacing: 0.03em;
   color: $dark-900;
   background-color: $white;
 }
@@ -42,10 +41,10 @@ body {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 15px;
-}
 
-.container--services {
-  max-width: 875px;
+  &--services {
+    max-width: 875px;
+  }
 }
 
 .condition-nav {
@@ -88,6 +87,7 @@ body {
 
 .btn {
   padding: 12px 22px;
+  letter-spacing: 0.03em;
   background-color: $green-900;
   border-radius: 6px;
   outline: transparent;
@@ -114,35 +114,37 @@ body {
   font-size: 32px;
   text-align: center;
   text-transform: uppercase;
+  letter-spacing: 0.03em;
   color: $dark-900;
 }
 
 .badge {
-    max-width: fit-content;
-    padding: 3px 6px;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 1;
-    text-transform: uppercase;
-    color: $white;
-    border-radius: 6px;
+  max-width: fit-content;
+  padding: 3px 6px;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $white;
+  border-radius: 6px;
 
-    &:not(:last-child) {
-      margin-bottom: 5px;
-    }
+  &:not(:last-child) {
+    margin-bottom: 5px;
   }
 
-.badge--green {
+  &--green {
     background-color: $green-900;
   }
 
-.badge--red {
+  &--red {
     background-color: $red-900;
   }
 
-.badge--orange {
+  &--orange {
     background-color: $orange-900
   }
+}
+
 
 .price {
   display: flex;
