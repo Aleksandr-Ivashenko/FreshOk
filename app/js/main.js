@@ -22,25 +22,6 @@ $(function () {
     nextArrow: '<button class="slider-hero__arrows slider-hero__arrows--next" type="button"><svg class="slider-hero__arrow" width="19" height="32" viewBox="0 0 19 32" fill="#505050" xmlns="http://www.w3.org/2000/svg"><path d="M18.3105 14.9851L2.29726 0.392105C1.77179 -0.130702 0.919579 -0.130702 0.394105 0.392105C-0.131368 0.914872 -0.131368 1.76312 0.394105 2.28593L15.4419 16L0.395438 29.7141C-0.130036 30.2369 -0.130036 31.0852 0.395438 31.6079C0.920912 32.1307 1.77312 32.1307 2.29855 31.6079L18.3119 17.0149C18.592 16.7362 18.712 16.3668 18.6933 16.0014C18.7107 15.6346 18.5907 15.2652 18.3105 14.9851Z"/></svg></button>',
   });
 
-  // if (currentSlide == 0)
-  //   $('.slick-prev').hide();
-
-  // //Проверяем событие на перемещение слайта
-  // $('.slider-hero__items').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-
-  //   //вычисляем какой следующий слад
-  //   if (nextSlide > 0)
-  //     $('.slider-hero__prev').prop('disabled', false);  $('#someid').removeProp('disabled')
-  //   if (nextSlide == 0)
-  //     $('.slider-hero__prev').prop('disabled', true);
-
-  //   //Здесь высчитываем общее количество слайдов
-  //   //Так как отсчет от 0 то отнимаем 1 слайд
-  //   if (nextSlide == (slick.slideCount - 1))
-  //     $('.slider-hero__next').hide();
-  //   if (nextSlide < (slick.slideCount - 1))
-  //     $('.slider-hero__next').show();
-  // });
-
   var Mixer = mixitup('.top-products__list');
+  var Mixer = mixitup('.sales__list');
 })

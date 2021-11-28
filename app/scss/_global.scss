@@ -43,7 +43,7 @@ body {
   padding: 0 15px;
 
   &--services {
-    max-width: 875px;
+    max-width: 975px;
   }
 }
 
@@ -125,6 +125,7 @@ body {
   font-size: 10px;
   line-height: 1;
   text-transform: uppercase;
+  letter-spacing: 0.03em;
   color: $white;
   border-radius: 6px;
 
@@ -171,4 +172,20 @@ body {
 
 .cost {
   color: $dark-500;
+}
+
+.availability {
+  font-size: 10px;
+}
+
+.availability--green {
+  color: $green-900;
+}
+
+.availability--red {
+  color: $red-900;
+}
+
+.availability--silver {
+  color: $silver-600;
 }
