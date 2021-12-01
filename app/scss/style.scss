@@ -8,6 +8,8 @@
   color: $white;
   letter-spacing: 0.03em;
 
+  @include max-w(xl) {}
+
   &__top {
     padding: 15px 0;
     font-size: 13px;
@@ -19,15 +21,6 @@
   &__top-inner {
     display: flex;
     justify-content: space-between;
-  }
-
-  &__menu {
-    display: flex;
-  }
-
-  &__menu-link {
-    padding: 10px 5px;
-
   }
 
   &__bottom {
@@ -42,37 +35,58 @@
     align-items: center;
   }
 
+  &__search {
+    margin-right: 20px;
+  }
 }
 
 .delivery {
   position: relative;
-  padding: 10px 25px;
+  padding: 10px 35px 10px 45px;
 
   &::before {
-    content: '';
-    position: absolute;
+    @include pseudo;
     top: 7px;
-    left: -12px;
+    left: 0;
     width: 32px;
     height: 22px;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(203deg) brightness(102%) contrast(105%);
+    transition: filter 0.5s;
   }
 
-  &--time {
-    &::before {
-      background-image: url('../images/icons/icon-delivery-time.svg');
-    }
+  &:active::before {
+    filter: invert(91%) sepia(17%) saturate(297%) hue-rotate(48deg) brightness(106%) contrast(86%);
   }
 
-  &--phone {
-    &::before {
-      background-image: url('../images/icons/icon-phone.svg');
-    }
+  &--time::before {
+    background-image: url('../images/sprite.svg#icon-delivery-time');
+    background-size: cover;
+  }
+
+  &--phone::before {
+    background-image: url('../images/sprite.svg#icon-phone');
   }
 }
 
+.menu {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: 10px 5px;
+  }
+
+  /*  ты говорил что я рано расширил падингами ссылки и можно focus добавить через псевдоэлемент, но у меня не вышло сделать что бы box-shadow заданный через before появлялся при focus, что посоветуешь?  */
+}
 
 .logo {
   display: block;
@@ -81,6 +95,10 @@
   outline: none;
   transition: box-shadow 0.5s;
 
+  &__img {
+    object-fit: contain;
+  }
+
   &:focus {
     box-shadow: 0 0 0 3px $green-100;
   }
@@ -88,10 +106,11 @@
 
 .dropdown {
   position: relative;
+  z-index: 5;
 
   &__btn {
     position: relative;
-    padding: 15px 39px 15px 60px;
+    padding: 13px 39px 13px 60px;
     color: $green-900;
     background-color: $white;
     border-radius: 6px;
@@ -99,18 +118,18 @@
 
     &::before,
     &::after {
-      content: '';
-      position: absolute;
+      @include pseudo;
       background-size: contain;
       background-repeat: no-repeat;
+      filter: invert(48%) sepia(54%) saturate(1237%) hue-rotate(51deg) brightness(98%) contrast(89%);
     }
 
     &::before {
       top: 15px;
       left: 18px;
       width: 25px;
-      height: 17px;
-      background-image: url('../images/icons/icon-dropdown-left.svg');
+      height: 20px;
+      background-image: url('../images/sprite.svg#icon-dropdown-left');
     }
 
     &::after {
@@ -118,7 +137,7 @@
       right: 17px;
       width: 10px;
       height: 10px;
-      background-image: url('../images/icons/icon-dropdown-right.svg');
+      background-image: url('../images/sprite.svg#icon-dropdown-right');
       transition: transform 0.5s;
     }
 
@@ -131,20 +150,20 @@
       border-radius: 6px 6px 0 0;
 
       &::after {
-        transform: rotateX(180deg) translateY(50%);
+        transform: rotateZ(-90deg);
       }
     }
   }
 
   &__list {
     position: absolute;
-    z-index: 1;
+    z-index: 5;
     max-height: 0;
     overflow: hidden;
     transition: max-height 1s;
 
     &--active {
-      max-height: 615px;
+      max-height: 650px;
     }
   }
 
@@ -156,6 +175,8 @@
   &__link {
     position: relative;
     display: block;
+    overflow: auto;
+    max-width: 242px;
     padding: 15px 56px 15px 24px;
     font-size: 16px;
     font-weight: 400;
@@ -165,8 +186,7 @@
     transition: box-shadow 0.5s, color 0.5s;
 
     &::before {
-      content: '';
-      position: absolute;
+      @include pseudo;
       top: 0;
       left: -1px;
       width: 3px;
@@ -202,28 +222,28 @@
   max-width: 576px;
   width: 100%;
 
-  &_label {
+  &__label {
     position: relative;
     width: 100%;
 
     &::before {
-      content: '';
-      position: absolute;
-      top: 18px;
-      left: 12px;
-      width: 20px;
+      @include pseudo;
+      top: 15px;
+      left: 5px;
+      width: 40px;
       height: 20px;
-      background-image: url('../images/icons/icon-search.svg');
+      cursor: text;
+      background-image: url('../images/sprite.svg#icon-search');
       background-size: contain;
       background-repeat: no-repeat;
-      cursor: text;
+      filter: invert(17%) sepia(33%) saturate(225%) hue-rotate(42deg) brightness(95%) contrast(92%);
     }
   }
 
   &__input {
     width: 100%;
-    height: 54px;
-    padding: 15px 15px 15px 50px;
+    height: 50px;
+    padding: 12px 15px 12px 50px;
     background-color: $white;
     border: none;
     border-radius: 6px 0 0 6px;
@@ -243,7 +263,7 @@
   }
 
   &__btn {
-    padding: 15px 52px;
+    padding: 12px 52px;
     text-transform: uppercase;
     background-color: $dark-800;
     border-radius: 0 6px 6px 0;
@@ -273,15 +293,26 @@
   }
 }
 
-
-.user {
+.square-button {
   position: relative;
   display: block;
   width: 50px;
   height: 50px;
   padding: 9px 15px;
-  background-repeat: no-repeat;
-  background-position: center;
+
+
+  &::before {
+    @include pseudo;
+    left: 50%;
+    top: 50%;
+    width: 34px;
+    height: 31px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(100%) sepia(0%) saturate(7454%) hue-rotate(111deg) brightness(108%) contrast(112%);
+    transform: translateX(-50%) translateY(-50%);
+  }
 
   &:hover {
     background-color: rgba($white, 0.1);
@@ -291,16 +322,16 @@
     opacity: 0.1;
   }
 
-  &--user {
-    background-image: url('../images/icons/icon-user.svg');
+  &--user::before {
+    background-image: url('../images/sprite.svg#icon-user');
   }
 
-  &--favorite {
-    background-image: url('../images/icons/icon-favorite.svg');
+  &--favorite::before {
+    background-image: url('../images/sprite.svg#icon-favorite');
   }
 
-  &--cart {
-    background-image: url('../images/icons/icon-cart.svg');
+  &--cart::before {
+    background-image: url('../images/sprite.svg#icon-cart');
   }
 
   &__num {
@@ -333,12 +364,24 @@
     margin: 30px 0;
   }
 
+  &__form {
+    margin-right: 60px;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
   &__links {
     column-count: 3;
-    column-gap: 75px;
+    column-gap: 35px;
   }
 
   &__item {
+    max-width: 250px;
+    margin: 0 15px;
+
     &:not(:last-child) {
       margin-bottom: 18px;
     }
@@ -363,63 +406,29 @@
     justify-content: space-between;
     align-items: center;
   }
-
-  &__payment {
-    display: flex;
-  }
-
-  &__payment-item {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    &:not(:last-child) {
-      margin-right: 25px;
-    }
-
-    &--visa {
-      width: 93px;
-      height: 23px;
-      background-image: url('../images/visa.svg');
-    }
-
-    &--mastercard {
-      width: 49px;
-      height: 29px;
-      background-image: url('../images/mastercard.svg');
-    }
-  }
-
-
-  &__img {
-    &:not(:last-child) {
-      margin-right: 25px;
-    }
-  }
 }
 
 .subscribe {
   max-width: 306px;
-
-  &__text {
-    margin-bottom: 15px;
-    line-height: 1;
-  }
-
-  &__inner {
-    display: flex;
-  }
+  display: flex;
 
   &__input {
     max-width: 180px;
-    padding: 12px;
+    padding: 10px 12px;
     background-color: $white;
     border: none;
     border-radius: 6px 0 0 6px;
+    outline: transparent;
+    transition: box-shadow 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 4px $green-200;
+    }
   }
 
   &__btn {
-    padding: 12px;
+    line-height: 1;
+    padding: 10px 12px;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -446,10 +455,37 @@
   }
 
   &__icon {
+    fill: $white;
     transition: fill 0.5s;
 
     &:active {
       fill: $green-200;
+    }
+  }
+}
+
+.payment {
+  display: flex;
+
+  &__item {
+    height: 29px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(99%) sepia(3%) saturate(288%) hue-rotate(5deg) brightness(116%) contrast(100%);
+
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    &--visa {
+      width: 93px;
+      background-image: url('../images/sprite.svg#icon-visa');
+    }
+
+    &--mastercard {
+      width: 49px;
+      background-image: url('../images/sprite.svg#icon-mastercard');
     }
   }
 }
@@ -482,7 +518,7 @@
     background-color: rgba($white, 0.8);
   }
 
-  &__heading {
+  &__title {
     max-width: 930px;
     font-family: 'Ruda', sans-serif;
     font-size: 60px;
@@ -491,7 +527,7 @@
     text-transform: uppercase;
   }
 
-  &__red {
+  &__subtitle {
     color: $red-900;
   }
 
@@ -501,6 +537,7 @@
   }
 
   &__btn {
+    margin: 0;
     font-size: 18px;
     line-height: 1.3;
     color: $white;
@@ -509,7 +546,7 @@
   &__arrows {
     position: absolute;
     top: 50%;
-    z-index: 1;
+    z-index: 3;
     width: 60px;
     height: 60px;
     font-size: 0;
@@ -545,6 +582,7 @@
   }
 
   &__arrow {
+    fill: $dark-500;
     transition: fill 0.5s;
   }
 
@@ -579,30 +617,33 @@
     padding-left: 75px;
 
     &::before {
-      content: '';
-      position: absolute;
+      @include pseudo;
       left: 0;
       top: 0;
       width: 50px;
       height: 50px;
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
     }
 
     &--scooter::before {
-      background-image: url('../images/icons/icon-scooter.svg');
+      background-image: url('../images/sprite.svg#icon-scooter');
     }
 
     &--box::before {
-      background-image: url('../images/icons/icon-box.svg');
+      background-image: url('../images/sprite.svg#icon-box');
     }
 
     &--24-hours::before {
-      background-image: url('../images/icons/icon-24-hours.svg');
+      background-image: url('../images/sprite.svg#icon-24-hours');
     }
   }
 
   &__caption {
+    max-width: 200px;
+    /*  стоит ли здесь ограничивать контент, ведь блок не подразумевает что он будет изменятся  */
     margin-bottom: 7px;
     font-weight: 600;
     font-size: 16px;
@@ -615,47 +656,22 @@
 }
 
 .top-products {
-  margin-bottom: 50px;
+  margin-bottom: 75px;
   letter-spacing: 0.03em;
 
   &__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
   &__item {
-    margin: 0 10px 20px;
-  }
-
-  &__btn {
-    display: block;
-    margin: 0 auto;
-    padding: 12px 24px;
-    font-size: 18px;
-    line-height: 1.3;
-    letter-spacing: 0.003em;
-    color: $green-900;
-    background-color: $white;
-    border: 1px solid $green-900;
-
-    &:focus {
-      box-shadow: 0 0 0 4px rgba($green-900, 0.5);
-    }
-
-    &:hover {
-      background-color: $green-100;
-    }
-
-    &:active {
-      color: rgba($green-900, 0.5);
-      box-shadow: inset 0 10px 4px rgba($black, 0.1);
-    }
+    margin: 0 15px 30px 15px;
   }
 }
 
-.filter-home {
+.mix-filter {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
@@ -667,15 +683,30 @@
   }
 
   &__btn {
+    position: relative;
     padding: 0;
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
     color: $dark-500;
+    border-radius: 3px;
+    outline: transparent;
+    transition: color 0.5s, opacity 0.5s, box-shadow 0.5s, background-color 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:hover {
+      color: $green-900;
+    }
+
+    &:active {
+      color: $green-200;
+    }
 
     &::after {
-      content: '';
-      position: absolute;
+      @include pseudo;
       left: 0;
       bottom: -5px;
       width: 0;
@@ -696,7 +727,7 @@
   position: relative;
   width: 300px;
   height: 409px;
-  padding: 15px 0;
+  padding: 10px 0;
   border: 1px solid rgba(17, 17, 17, 0.2);
   border-radius: 6px;
   transition: border-color 0.5s;
@@ -706,45 +737,16 @@
   }
 
   &__top {
+    height: 44px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 45px;
-    margin: 0 15px;
+    margin: 0 3px 0 10px;
   }
 
   &__badges {
     display: flex;
     flex-direction: column;
-  }
-
-  &__like {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    outline: transparent;
-    transition: box-shadow 0.5s, background-color 0.5s;
-
-    &:focus {
-      background-color: rgba($white, 0.0001);
-      box-shadow: 0 0 0 3px $green-200;
-    }
-
-    &:hover .card-top__icon {
-      fill: $yellow-900;
-    }
-
-    &:active .card-top__icon {
-      opacity: 0.5;
-    }
-  }
-
-  &__icon {
-    fill: $silver-600;
-    transition: fill 0.5s, opacity 0.5s;
   }
 
   &__image {
@@ -753,7 +755,7 @@
   }
 
   &__img {
-    padding: 0 2px;
+    object-fit: contain;
   }
 
   &__link {
@@ -766,20 +768,32 @@
     transition: background-color 0.7s, opacity 0.9s;
     opacity: 0;
 
-    &::before {
-      content: '';
-      position: absolute;
+
+    &::before,
+    &::after {
+      /*  у меня filter конфликтовал с background-color, пришлось зделать их через отдельные элементы  */
+      @include pseudo;
       top: 50%;
       left: 50%;
-      width: 48px;
-      height: 48px;
-      background-image: url('../images/icons/icon-magnifier.svg');
-      background-size: 20px 20px;
-      background-color: $white;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    &::before {
+      width: 20px;
+      height: 20px;
+      background-image: url('../images/sprite.svg#icon-magnifier');
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+      filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
+      z-index: 3;
+    }
+
+    &::after {
+      width: 48px;
+      height: 48px;
+      background-color: $white;
       border-radius: 50%;
-      transform: translateX(-50%) translateY(-50%);
     }
 
     &:hover {
@@ -796,54 +810,77 @@
   }
 
   &__title {
+    max-width: 260px;
     margin-bottom: 10px;
-    overflow: hidden;
     font-size: 14px;
     font-weight: 600;
+    @include line-clamp(3);
   }
 
   &__bottom-price {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
   }
 
   &__cart {
+    position: relative;
+    margin: 0;
     padding: 0;
     width: 32px;
     height: 32px;
-    background-image: url('../images/icons/icon-cart-btn.svg');
-    background-size: 16px 15px;
-    background-position: center;
-    background-repeat: no-repeat;
     border-radius: 3px;
-  }
 
-  /* если задать size contain или cover, то картинка растягивается на весь размер, по этому задал размер в пикселях
-  ты предлагал сделать иконку корзины через псевдоэлемент, будут ли от этого преимущества и в чём недостатки того как сделал я????*/
+    &::before {
+      @include pseudo;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 15px;
+      transform: translateX(-50%) translateY(-50%);
+      background-image: url('../images/sprite.svg#icon-cart-btn');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(211deg) brightness(119%) contrast(102%);
+    }
+  }
 }
 
 .banners {
   margin-bottom: 70px;
 
   &__list {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 2fr repeat(2, 1fr);
-    grid-template-rows: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    max-width: 300px;
+    width: 100%;
+    color: $dark-500;
+
+    &--big {
+      max-width: 630px;
+      color: $white;
+      text-shadow: 1px 1px 0 rgba($black, 0.25);
+    }
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
   }
 }
 
 .banner {
-  /*  что если баннеры просто вставлять картинкой вместе с текстом, такое часто используется ??????   */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
-  padding-left: 30px;
+  height: 300px;
+  padding: 30px;
   font-weight: 700;
   line-height: 1;
-  color: $dark-500;
+
   text-transform: uppercase;
   background-size: cover;
   background-position: center;
@@ -853,68 +890,60 @@
   outline: transparent;
   transition: box-shadow 0.5s, border-color 0.5s;
 
-  &__pre-title {
+  &__pretitle {
     margin-bottom: 18px;
     font-size: 12px;
     letter-spacing: 0.1em;
-
-    &--shadow {
-      text-shadow: 1px 1px 0 rgba($black, 0.25);
-    }
   }
 
   &__title {
     max-width: 160px;
-    margin-bottom: 12px;
     font-family: 'Ruda', sans-serif;
     font-weight: 600;
     font-size: 30px;
     line-height: 1.4;
+    @include line-clamp(2);
 
-    &--shadow {
+    &--wide {
       max-width: 350px;
-      text-shadow: 2px 2px 0 rgba($black, 0.25);
     }
   }
 
-  &__after-title {
+  &__link {
     position: relative;
     width: fit-content;
+    padding: 10px 0;
     font-size: 14px;
+    border-radius: 3px;
+    outline: transparent;
+    transition: box-shadow 0.5s, opacity 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:hover {
+      opacity: 0.4;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
 
     &::after {
-      content: '';
-      position: absolute;
+      @include pseudo;
       left: 0;
-      bottom: -8px;
+      bottom: 0;
       width: 100%;
       height: 2px;
       background-color: $dark-500;
     }
 
-    &--shadow {
-      text-shadow: 1px 1px 0 rgba($black, 0.25);
-
+    &--white {
       &::after {
         background-color: $white;
       }
     }
-  }
-
-  &--white {
-    color: $white;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 4px $green-200;
-  }
-
-  &:hover {
-    border-color: $green-900;
-  }
-
-  &:active {
-    box-shadow: inset 0 0 0 300px rgba($black, 0.1);
   }
 }
 
@@ -928,12 +957,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+  }
+
+  &__item {
+    margin: 0 15px 30px 15px;
   }
 
   &__btn {
-    display: block;
-    margin: 0 auto;
     padding: 12px 24px;
     font-size: 18px;
     line-height: 1.3;
@@ -941,8 +972,7 @@
   }
 }
 
-.card-sales {
-  margin: 0 10px 10px 10px;
+.card-mini {
   font-weight: 600;
   letter-spacing: 0.03em;
 
@@ -951,7 +981,7 @@
     display: flex;
     width: 300px;
     height: 125px;
-    padding: 10px;
+    padding: 15px 10px;
     background-color: $white;
     border: 1px solid $silver-600;
     border-radius: 6px;
@@ -974,39 +1004,39 @@
   &__badge {
     position: absolute;
     left: 10px;
-    top: 10px;
-    z-index: 1;
-    /*  нужен ли здесь индекс, на всякий случай???  */
+    top: 14px;
+    z-index: 3;
   }
 
   &__grade {
     position: absolute;
-    right: 26px;
+    right: 30px;
     bottom: 10px;
     font-weight: 700;
     line-height: 1;
     color: $dark-500;
 
     &::after {
-      content: '';
-      position: absolute;
+      @include pseudo;
       bottom: 0;
       right: -18px;
       width: 16px;
       height: 16px;
-      background-image: url('../images/icons/icon-grade.svg');
-      background-size: contain;
+      background-image: url('../images/sprite.svg#icon-grade');
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      filter: invert(73%) sepia(53%) saturate(2879%) hue-rotate(2deg) brightness(105%) contrast(103%);
     }
   }
 
   &__img {
+    object-fit: contain;
     margin-right: 10px;
   }
 
   &__content {
-    height: 105px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1014,6 +1044,7 @@
 
   &__title {
     font-size: 14px;
+    @include line-clamp(3);
   }
 
   &__inner {
@@ -1021,6 +1052,7 @@
   }
 
   &__price {
+    margin-top: 10px;
     flex-direction: row;
     align-items: flex-end;
   }
@@ -1028,10 +1060,10 @@
   &__cost {
     margin-right: 15px;
     font-size: 20px;
+  }
 
-    &--small {
-      font-size: 14px;
-    }
+  &__cost span {
+    font-size: 14px;
   }
 
   &__discount {
@@ -1056,7 +1088,6 @@
     align-items: center;
   }
 
-
   &__link {
     &:hover .brands__img {
       opacity: 1;
@@ -1068,6 +1099,7 @@
   }
 
   &__img {
+    object-fit: contain;
     opacity: 0.5;
     transition: opacity 0.5s;
   }
@@ -1087,35 +1119,35 @@
     margin: 0;
   }
 
-  &__top-link {
+  &__link {
     position: relative;
     font-weight: 700;
     line-height: 1.3;
     text-transform: uppercase;
     color: $green-900;
     border-radius: 3px;
-    transition: box-shadow 0.5s, opacity 0.5s;
+    transition: box-shadow 0.5s, opacity 0.5s, color 0.5s;
 
     &::before {
-      content: '';
-      position: absolute;
+      @include pseudo;
       top: 20px;
       left: 0;
       width: 100%;
       height: 2px;
       background-color: $green-900;
+      transition: background-color 0.5s;
     }
 
     &:focus {
-      box-shadow: 0 0 0 4px $green-200;
+      box-shadow: 0 0 0 3px $green-200;
     }
 
     &:hover {
-      opacity: 0.3;
+      color: $green-1000;
     }
 
-    &:active {
-      opacity: 0.8;
+    &:active::before {
+      background-color: $green-200;
     }
   }
 
@@ -1125,31 +1157,32 @@
   }
 
   &__item {
-    border-radius: 0 0 6px 6px;
-    box-shadow: 0 3px 3px rgba($black, 0.25);
-
     &:not(:last-child) {
       margin-right: 30px;
     }
   }
+}
+
+.article {
+  height: 350px;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 3px 3px rgba($black, 0.25);
 
   &__link {
     position: relative;
-    display: block;
-    height: 100%;
-    border-radius: 6px;
-    outline: transparent;
+    padding: 18px 0;
     transition: box-shadow 0.5s;
+    /*  ты сделал замечание что сдесь не задан transition для color, но цвет меняется не у ссылки, а у title. У него есть плавность, ниже в коде  */
 
     &:focus {
       box-shadow: 0 0 0 4px $green-200;
     }
 
-    &:hover .news__text {
+    &:hover .article__title {
       color: $green-900;
     }
 
-    &:active .news__text {
+    &:active .article__title {
       color: $yellow-900;
     }
   }
@@ -1158,7 +1191,7 @@
     position: absolute;
     top: 0;
     left: 20px;
-    z-index: 1;
+    z-index: 3;
     width: 65px;
     height: 75px;
     display: flex;
@@ -1174,6 +1207,7 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   &__number {
@@ -1185,13 +1219,20 @@
     text-transform: uppercase;
   }
 
-  &__text {
+  &__img {
+    border-radius: 6px 6px 0 0;
+    object-fit: cover;
+    margin-bottom: 18px;
+  }
+
+  &__title {
     max-width: 390px;
-    padding: 18px;
+    padding: 0 18px;
     font-size: 16px;
     font-weight: 600;
     line-height: 1.5;
     color: $dark-900;
     transition: color 0.5s;
+    @include line-clamp(3);
   }
 }

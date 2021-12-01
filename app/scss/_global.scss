@@ -28,6 +28,27 @@ body {
   background-color: $white;
 }
 
+.lock-scroll {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 18px;
+}
+
+.overlay {
+  position: absolute;
+  display: none;
+  background-color: rgba($black, 0.15);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 4;
+
+  &--active {
+    display: block;
+  }
+}
+
 .header,
 .footer {
   flex: 0 0 auto;
@@ -45,9 +66,13 @@ body {
   &--services {
     max-width: 975px;
   }
+
+  &--large {
+    max-width: 1350px;
+  }
 }
 
-.condition-nav {
+.condition {
   border-radius: 3px;
   transition: color 0.5s, opacity 0.5s, box-shadow 0.5s, background-color 0.5s;
   outline: transparent;
@@ -65,27 +90,9 @@ body {
   }
 }
 
-.condition-filter {
-  position: relative;
-  border-radius: 3px;
-  transition: color 0.5s, opacity 0.5s, box-shadow 0.5s, background-color 0.5s;
-  outline: transparent;
-
-
-  &:focus {
-    box-shadow: 0 0 0 3px $green-200;
-  }
-
-  &:hover {
-    color: $green-900;
-  }
-
-  &:active {
-    color: $green-200;
-  }
-}
-
 .btn {
+  display: block;
+  margin: 0 auto;
   padding: 12px 22px;
   letter-spacing: 0.03em;
   background-color: $green-900;
@@ -102,8 +109,30 @@ body {
   }
 
   &:active {
-    color: rgba(255, 255, 255, 0.5);
-    box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: rgba($white, 0.5);
+    box-shadow: inset 0 4px 4px rgba($black, 0.25);
+  }
+
+  &--white {
+    padding: 12px 24px;
+    font-size: 18px;
+    line-height: 1.3;
+    color: $green-900;
+    background-color: $white;
+    border: 1px solid $green-900;
+
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($green-900, 0.5);
+    }
+
+    &:hover {
+      background-color: $green-100;
+    }
+
+    &:active {
+      color: rgba($green-900, 0.5);
+      box-shadow: inset 0 10px 4px rgba($black, 0.1);
+    }
   }
 }
 
@@ -146,10 +175,37 @@ body {
   }
 }
 
+.like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  outline: transparent;
+  transition: box-shadow 0.5s, background-color 0.5s;
+
+  &:focus {
+    box-shadow: 0 0 0 3px $green-200;
+  }
+
+  &:hover .like__icon {
+    fill: $yellow-900;
+  }
+
+  &:active .like__icon {
+    opacity: 0.5;
+  }
+
+  &__icon {
+    fill: $silver-600;
+    transition: fill 0.5s, opacity 0.5s;
+  }
+}
+
 
 .price {
   display: flex;
   flex-direction: column;
+  margin-left: 5px;
   line-height: 1;
 }
 
@@ -176,16 +232,16 @@ body {
 
 .availability {
   font-size: 10px;
-}
 
-.availability--green {
-  color: $green-900;
-}
+  &--green {
+    color: $green-900;
+  }
 
-.availability--red {
-  color: $red-900;
-}
+  &--red {
+    color: $red-900;
+  }
 
-.availability--silver {
-  color: $silver-600;
+  &--silver {
+    color: $silver-600;
+  }
 }
