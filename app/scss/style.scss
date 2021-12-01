@@ -8,8 +8,6 @@
   color: $white;
   letter-spacing: 0.03em;
 
-  @include max-w(xl) {}
-
   &__top {
     padding: 15px 0;
     font-size: 13px;
@@ -219,7 +217,7 @@
 
 .search {
   display: flex;
-  max-width: 576px;
+  max-width: 425px;
   width: 100%;
 
   &__label {
@@ -574,10 +572,18 @@
 
     &--prev {
       left: 60px;
+
+      @include max-w($xl) {
+        left: 30px;
+      }
     }
 
     &--next {
       right: 60px;
+
+      @include max-w($xl) {
+        right: 30px;
+      }
     }
   }
 
@@ -1079,21 +1085,19 @@
   }
 }
 
-.brands {
+.slider-brands {
   margin-bottom: 70px;
 
-  &__list {
+  &__link {
     display: flex;
     justify-content: space-around;
     align-items: center;
-  }
 
-  &__link {
-    &:hover .brands__img {
+    &:hover .slider-brands__img {
       opacity: 1;
     }
 
-    &:active .brands__img {
+    &:active .slider-brands__img {
       opacity: 0.7;
     }
   }

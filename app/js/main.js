@@ -70,6 +70,11 @@ $(function () {
     nextArrow: '<button class="slider-hero__arrows slider-hero__arrows--next" type="button"><svg class="slider-hero__arrow slider-hero__arrow--next" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-next"></use></svg></button>',
   });
 
+  $('.slider-brands__items').slick({
+    arrows: false,
+    slidesToShow: 6,
+  });
+
 
   /*  решение конфликта двух mixitup  */
   var containerEl1 = document.querySelector('[data-ref="filter-1"]');
