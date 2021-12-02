@@ -10,21 +10,37 @@
 
   &__top {
     padding: 15px 0;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
     background-color: $dark-800;
+
+    @include max-w($sm) {
+      padding: 3px 0;
+    }
   }
 
   &__top-inner {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__connection {
+    @include max-w($sm) {
+      order: 1;
+    }
   }
 
   &__bottom {
     padding: 25px 0;
     font-weight: 600;
     background-color: $green-900;
+
+    @include max-w($sm) {
+      padding: 5px 0;
+    }
   }
 
   &__bottom-inner {
@@ -36,23 +52,47 @@
   &__search {
     margin-right: 20px;
   }
+
+  & .header__dropdown {
+    @include max-w($lg) {
+      position: absolute;
+      left: 220px;
+    }
+  }
 }
 
 .delivery {
   position: relative;
   padding: 10px 35px 10px 45px;
 
+  @include max-w($lg) {
+    font-size: 0;
+    padding: 26px 5px 18px 22px;
+  }
+
+  &:not(:last-child) {
+    @include max-w($lg) {
+      margin-right: 15px;
+    }
+  }
+
   &::before {
     @include pseudo;
     top: 7px;
     left: 0;
     width: 32px;
-    height: 22px;
+    height: 25px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(203deg) brightness(102%) contrast(105%);
     transition: filter 0.5s;
+
+    @include max-w($lg) {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
   }
 
   &:active::before {
@@ -72,9 +112,50 @@
 .menu {
   display: flex;
 
+  &__btn {
+    position: relative;
+    display: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 3px;
+
+    @include max-w($sm) {
+      display: block;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 30px rgba($white, 0.1);
+    }
+  }
+
+  &__line {
+    display: flex;
+
+    &,
+    &::before,
+    &::after {
+      @include pseudo;
+      width: 30px;
+      height: 2px;
+      background-color: $white;
+    }
+
+    &::before {
+      top: 10px;
+    }
+
+    &::after {
+      top: -10px;
+    }
+  }
+
   &__item {
     &:not(:last-child) {
       margin-right: 10px;
+    }
+
+    @include max-w($sm) {
+      display: none;
     }
   }
 
@@ -84,6 +165,157 @@
   }
 
   /*  ты говорил что я рано расширил падингами ссылки и можно focus добавить через псевдоэлемент, но у меня не вышло сделать что бы box-shadow заданный через before появлялся при focus, что посоветуешь?  */
+}
+
+.burger {
+  /*  не могу правильно сделать блокировку скролла для body что бы при этом меню можно было скролить, если добавить overflow hidden для body, то меню нельзя будет скролить даже если на нём висит overflow scroll   */
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 1.2;
+  color: $dark-800;
+  background-color: $white;
+  padding: 25px 0;
+  z-index: 5;
+  transform: translateY(-800px);
+  transition: transform 0.7s;
+
+  &--active {
+    transform: translateY(0);
+  }
+
+  @include max-w($sm) {
+    display: flex;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 25px 25px 15px;
+  }
+
+  &__close {
+    position: relative;
+    width: 44px;
+    height: 44px;
+
+    &::before {
+      @include pseudo;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 18px;
+      height: 18px;
+      background-image: url('../images/sprite.svg#icon-close');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 30px rgba($black, 0.1);
+    }
+  }
+
+  &__nav {
+    position: relative;
+    display: block;
+    padding: 15px 15px 15px 55px;
+    line-height: 1;
+
+    &:active {
+      box-shadow: inset 0 0 0 30px rgba($black, 0.1);
+    }
+
+    &::before {
+      @include pseudo;
+      top: 15px;
+      left: 15px;
+      width: 24px;
+      height: 19px;
+      background-image: url('../images/sprite.svg#icon-catalog');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &--green {
+      color: $white;
+      background-color: $green-900;
+
+      &:active {
+        box-shadow: inset 0 0 0 30px rgba($white, 0.3);
+      }
+
+      &::before {
+        top: 10px;
+        width: 24px;
+        height: 32px;
+        background-image: url('../images/sprite.svg#icon-user');
+        filter: invert(100%) sepia(0%) saturate(7441%) hue-rotate(142deg) brightness(131%) contrast(94%);
+      }
+    }
+  }
+
+  &__contacts {
+    margin-bottom: 25px;
+    border-top: 1px solid rgba($silver-600, 0.3);
+    border-bottom: 1px solid rgba($silver-600, 0.3);
+  }
+
+  &__contact {
+    position: relative;
+    display: block;
+    padding: 15px 15px 15px 55px;
+
+    &:active {
+      box-shadow: inset 0 0 0 30px rgba($black, 0.1);
+    }
+
+    &::before {
+      @include pseudo;
+      left: 15px;
+      width: 24px;
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &--phone::before {
+      top: 15px;
+      height: 24px;
+      background-image: url('../images/sprite.svg#icon-phone');
+    }
+
+    &--adress::before {
+      top: 20px;
+      height: 32px;
+      background-image: url('../images/sprite.svg#icon-adress');
+    }
+  }
+
+  &__social {
+    margin-bottom: 25px;
+    margin-left: 15px;
+  }
+
+  & .burger__icon {
+    fill: $dark-800
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 15px;
+
+    &:active {
+      box-shadow: inset 0 0 0 30px rgba($black, 0.1);
+    }
+  }
 }
 
 .logo {
@@ -97,6 +329,20 @@
     object-fit: contain;
   }
 
+  &__img-desctop {
+    @include max-w($sm) {
+      display: none;
+    }
+  }
+
+  &__img-mobile {
+    display: none;
+
+    @include max-w($sm) {
+      display: block;
+    }
+  }
+
   &:focus {
     box-shadow: 0 0 0 3px $green-100;
   }
@@ -106,6 +352,10 @@
   position: relative;
   z-index: 5;
 
+  @include max-w($sm) {
+    display: none;
+  }
+
   &__btn {
     position: relative;
     padding: 13px 39px 13px 60px;
@@ -113,6 +363,11 @@
     background-color: $white;
     border-radius: 6px;
     transition: background-color 0.5s, border-radius 0.5s;
+    z-index: 5;
+
+    @include max-w($lg) {
+      padding: 13px 30px;
+    }
 
     &::before,
     &::after {
@@ -123,11 +378,15 @@
     }
 
     &::before {
-      top: 15px;
+      top: 17px;
       left: 18px;
       width: 25px;
       height: 20px;
-      background-image: url('../images/sprite.svg#icon-dropdown-left');
+      background-image: url('../images/sprite.svg#icon-catalog');
+
+      @include max-w($lg) {
+        left: 3px;
+      }
     }
 
     &::after {
@@ -137,6 +396,10 @@
       height: 10px;
       background-image: url('../images/sprite.svg#icon-dropdown-right');
       transition: transform 0.5s;
+
+      @include max-w($lg) {
+        display: none;
+      }
     }
 
     &:hover {
@@ -217,8 +480,16 @@
 
 .search {
   display: flex;
-  max-width: 425px;
+  max-width: 575px;
   width: 100%;
+
+  @include max-w($xl) {
+    max-width: 425px;
+  }
+
+  @include max-w($lg) {
+    display: none;
+  }
 
   &__label {
     position: relative;
@@ -231,7 +502,7 @@
       width: 40px;
       height: 20px;
       cursor: text;
-      background-image: url('../images/sprite.svg#icon-search');
+      background-image: url('../images/sprite.svg#icon-magnifier');
       background-size: contain;
       background-repeat: no-repeat;
       filter: invert(17%) sepia(33%) saturate(225%) hue-rotate(42deg) brightness(95%) contrast(92%);
@@ -247,6 +518,10 @@
     border-radius: 6px 0 0 6px;
     transition: background-color 0.5s;
     outline: transparent;
+
+    @include max-w($lg) {
+      border-radius: 0;
+    }
 
     &::placeholder {
       font-family: 'Open Sans', sans-serif;
@@ -266,6 +541,11 @@
     background-color: $dark-800;
     border-radius: 0 6px 6px 0;
 
+    @include max-w($lg) {
+      padding: 13px 25px;
+      border-radius: 0;
+    }
+
     &:focus {
       box-shadow: 0 0 0 4px rgba($white, 0.5);
     }
@@ -276,6 +556,31 @@
   }
 }
 
+.search-mobile {
+  position: absolute;
+  display: none;
+  max-width: 375px;
+  width: 100%;
+  top: 158px;
+  right: 0;
+  z-index: 5;
+  transform: translateY(-500px);
+  /*хотел поставить анимацию что бы поле выезжало сбоку, но когда оно появляется за пределами экрана, то появляется боковой скролл. С этим можно как то бороться или аницаю уже стоит менять на нужную в последний момент, когда всё готово????? */
+  transition: transform 0.8s;
+
+  @include max-w($sm) {
+    top: 110px;
+  }
+
+  &--active {
+    transform: translateY(0);
+  }
+
+  @include max-w($lg) {
+    display: flex;
+  }
+}
+
 .user-nav {
   display: flex;
   align-items: center;
@@ -283,10 +588,26 @@
   &__item {
     &:not(:last-child) {
       margin-right: 10px;
+
+      @include max-w($sm) {
+        margin-right: 0;
+      }
     }
 
     &:last-child {
       margin-right: 5px;
+
+      @include max-w($sm) {
+        margin-right: 0;
+      }
+    }
+
+    &--mobile {
+      display: none;
+
+      @include max-w($lg) {
+        display: block;
+      }
     }
   }
 }
@@ -310,6 +631,10 @@
     background-position: center;
     filter: invert(100%) sepia(0%) saturate(7454%) hue-rotate(111deg) brightness(108%) contrast(112%);
     transform: translateX(-50%) translateY(-50%);
+
+    @include max-w($sm) {
+      height: 25px;
+    }
   }
 
   &:hover {
@@ -320,12 +645,29 @@
     opacity: 0.1;
   }
 
-  &--user::before {
-    background-image: url('../images/sprite.svg#icon-user');
+  &--magnifier::before {
+    background-image: url('../images/sprite.svg#icon-magnifier');
+    z-index: 5;
   }
 
-  &--favorite::before {
-    background-image: url('../images/sprite.svg#icon-favorite');
+  &--user {
+    @include max-w($sm) {
+      display: none;
+    }
+
+    &::before {
+      background-image: url('../images/sprite.svg#icon-user');
+    }
+  }
+
+  &--favorite {
+    @include max-w($sm) {
+      display: none;
+    }
+
+    &::before {
+      background-image: url('../images/sprite.svg#icon-favorite');
+    }
   }
 
   &--cart::before {
@@ -355,6 +697,24 @@
   color: $white;
   background-color: $dark-800;
 
+  @include max-w($lg) {
+    padding-top: 25px;
+  }
+
+  &__desktop {
+    @include max-w($lg) {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    display: none;
+
+    @include max-w($lg) {
+      display: block;
+    }
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -364,6 +724,10 @@
 
   &__form {
     margin-right: 60px;
+
+    @include max-w($lg) {
+      margin-right: 0;
+    }
   }
 
   &__text {
@@ -374,6 +738,15 @@
   &__links {
     column-count: 3;
     column-gap: 35px;
+
+    @include max-w($lg) {
+      column-count: 2;
+      column-gap: 0;
+    }
+
+    @include max-w($sm) {
+      margin: 25px 0 25px 50px;
+    }
   }
 
   &__item {
@@ -388,6 +761,10 @@
   &__contacts {
     display: flex;
     flex-direction: column;
+
+    @include max-w($lg) {
+      margin: 25px 0;
+    }
   }
 
   &__contact {
@@ -395,14 +772,60 @@
   }
 
   &__bottom {
-    padding: 25px 0;
+    padding: 25px 15px;
     border-top: 1px solid rgba($white, 0.1);
+
+    @include max-w($lg) {
+      border-top: none;
+    }
   }
 
   &__bottom-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include max-w($lg) {
+      flex-direction: column;
+    }
+  }
+
+  &__copyright {
+    @include max-w($lg) {
+      margin-top: 25px;
+      order: 1;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include max-w($sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__box {
+    min-height: 120px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba($white, 0.1);
+
+    &--column {
+      flex-direction: column;
+    }
+
+    @include max-w($sm) {
+      width: 100%;
+    }
+  }
+
+  &__social {
+    margin: 0 auto;
   }
 }
 
@@ -491,7 +914,7 @@
 .slider-hero {
   color: $dark-500;
 
-  &__item {
+  &__wrapper {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -501,6 +924,24 @@
     display: flex;
     min-height: 600px;
     height: 100%;
+
+    @include max-w($lg) {
+      min-height: 450px;
+    }
+
+    @include max-w($lg) {
+      min-height: 450px;
+    }
+
+    @include max-w($sm) {
+      min-height: 320px;
+    }
+  }
+
+  &__box.container {
+    @include max-w($sm) {
+      padding: 0;
+    }
   }
 
   &__inner {
@@ -514,6 +955,17 @@
     margin: auto;
     padding: 24px;
     background-color: rgba($white, 0.8);
+
+    @include max-w($xl) {
+      max-width: 1000px;
+    }
+
+    @include max-w($lg) {}
+
+    @include max-w($sm) {
+      min-height: 209px;
+      padding: 15px;
+    }
   }
 
   &__title {
@@ -523,6 +975,21 @@
     font-weight: 900;
     line-height: 1.3;
     text-transform: uppercase;
+
+    @include max-w($lg) {
+      max-width: 750px;
+      font-size: 50px;
+    }
+
+    @include max-w($sm) {
+      max-width: 475px;
+      font-size: 35px;
+    }
+
+    @include max-w($xs) {
+      max-width: 260px;
+      font-size: 20px;
+    }
   }
 
   &__subtitle {
@@ -539,6 +1006,10 @@
     font-size: 18px;
     line-height: 1.3;
     color: $white;
+
+    @include max-w($sm) {
+      font-size: inherit;
+    }
   }
 
   &__arrows {
@@ -592,6 +1063,34 @@
     transition: fill 0.5s;
   }
 
+  .slick-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+
+    & li:not(:last-child) {
+      margin-right: 13px;
+    }
+  }
+
+  .slick-dots button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    font-size: 0;
+    background-color: $white;
+    border-radius: 50%;
+    transition: background-color 0.5s;
+  }
+
+  .slick-active button {
+    background-color: $green-900;
+  }
+
   .slick-disabled .slider-hero__arrow {
     fill: $silver-600;
   }
@@ -610,17 +1109,45 @@
   padding: 50px 0 30px;
   background-color: $silver-100;
 
+  @include max-w($lg) {
+    margin-bottom: 50px;
+    padding: 30px 0;
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    @include max-w($sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include max-w($xs) {
+      align-items: flex-start;
+    }
   }
 
   &__item {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding-left: 75px;
+
+    @include max-w($sm) {
+      width: 260px;
+    }
+
+    @include max-w($xs) {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      @include max-w($sm) {
+        margin-bottom: 30px;
+      }
+    }
 
     &::before {
       @include pseudo;
@@ -658,6 +1185,10 @@
   &__text {
     max-width: 185px;
     color: $dark-500;
+
+    @include max-w($xs) {
+      min-width: 100%;
+    }
   }
 }
 
@@ -665,15 +1196,26 @@
   margin-bottom: 75px;
   letter-spacing: 0.03em;
 
+  @include max-w($lg) {
+    margin-bottom: 50px;
+  }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 15px;
+
+    @include max-w($sm) {
+      margin-bottom: 20px;
+    }
   }
 
   &__item {
     margin: 0 15px 30px 15px;
+
+    @include max-w($sm) {
+      margin: 0 2px 5px 0;
+    }
   }
 }
 
@@ -682,9 +1224,21 @@
   justify-content: center;
   margin-bottom: 50px;
 
+  @include max-w($lg) {
+    margin-bottom: 10px;
+  }
+
+  @include max-w($sm) {
+    flex-wrap: wrap;
+  }
+
   &__item {
     &:not(:last-child) {
       margin-right: 25px;
+    }
+
+    @include max-w($sm) {
+      margin-bottom: 15px;
     }
   }
 
@@ -720,6 +1274,10 @@
       background-color: rgba($green-900, 0.2);
       transition: width 0.5s;
     }
+
+    @include max-w($xs) {
+      font-size: 14px;
+    }
   }
 
   .mixitup-control-active {
@@ -737,6 +1295,13 @@
   border: 1px solid rgba(17, 17, 17, 0.2);
   border-radius: 6px;
   transition: border-color 0.5s;
+
+  @include max-w($sm) {
+    min-height: 309px;
+    max-height: 344px;
+    width: 170px;
+    height: 100%;
+  }
 
   &:hover {
     border-color: $green-900;
@@ -762,6 +1327,11 @@
 
   &__img {
     object-fit: contain;
+
+    @include max-w($sm) {
+      width: 170px;
+      height: 120px;
+    }
   }
 
   &__link {
@@ -788,7 +1358,7 @@
       width: 20px;
       height: 20px;
       background-image: url('../images/sprite.svg#icon-magnifier');
-      background-size: contain;
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
@@ -856,9 +1426,23 @@
 .banners {
   margin-bottom: 70px;
 
+  @include max-w($lg) {
+    margin-bottom: 15px;
+  }
+
   &__list {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
+
+    @include max-w($lg) {
+      flex-wrap: wrap;
+      max-width: 800px;
+    }
+
+    @include max-w($sm) {
+      max-width: 345px;
+    }
   }
 
   &__item {
@@ -866,14 +1450,38 @@
     width: 100%;
     color: $dark-500;
 
+    @include max-w($sm) {
+      max-width: 345px;
+      margin-bottom: 15px;
+    }
+
     &--big {
       max-width: 630px;
       color: $white;
       text-shadow: 1px 1px 0 rgba($black, 0.25);
+
+      @include max-w($lg) {
+        margin-bottom: 15px;
+        margin-right: 0;
+      }
+
+      @include max-w($sm) {
+        max-width: 345px;
+      }
     }
 
     &:not(:last-child) {
       margin-right: 30px;
+
+      @include max-w($sm) {
+        margin-right: 0;
+      }
+    }
+
+    &:nth-child(1) {
+      @include max-w($lg) {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -886,15 +1494,19 @@
   padding: 30px;
   font-weight: 700;
   line-height: 1;
-
   text-transform: uppercase;
   background-size: cover;
   background-position: center;
+  /*  нужно ли переставлять позицию для бэкгроунд или вырезать другую картнку для первого баннера????  */
   background-repeat: no-repeat;
   border: 1px solid transparent;
   border-radius: 6px;
   outline: transparent;
   transition: box-shadow 0.5s, border-color 0.5s;
+
+  @include max-w($xs) {
+    padding: 15px;
+  }
 
   &__pretitle {
     margin-bottom: 18px;
@@ -910,8 +1522,17 @@
     line-height: 1.4;
     @include line-clamp(2);
 
+    @include max-w($xs) {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
     &--wide {
       max-width: 350px;
+
+      @include max-w($sm) {
+        max-width: 275px;
+      }
     }
   }
 
@@ -958,6 +1579,11 @@
   padding: 70px 0;
   background-color: $silver-100;
 
+  @include max-w($lg) {
+    margin-bottom: 50px;
+    padding: 50px 0;
+  }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -968,6 +1594,10 @@
 
   &__item {
     margin: 0 15px 30px 15px;
+
+    @include max-w($sm) {
+      margin-bottom: 15px;
+    }
   }
 
   &__btn {
@@ -1088,6 +1718,10 @@
 .slider-brands {
   margin-bottom: 70px;
 
+  @include max-w($lg) {
+    margin-bottom: 50px;
+  }
+
   &__link {
     display: flex;
     justify-content: space-around;
@@ -1112,11 +1746,20 @@
 .news {
   margin-bottom: 70px;
 
+  @include max-w($lg) {
+    margin-bottom: 50px;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+
+    @include max-w($sm) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__title {
@@ -1158,19 +1801,34 @@
   &__list {
     display: flex;
     justify-content: space-between;
+
+    @include max-w($sm) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__item {
     &:not(:last-child) {
       margin-right: 30px;
+
+      @include max-w ($sm) {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
     }
   }
 }
 
 .article {
-  height: 350px;
+  height: 345px;
   border-radius: 0 0 6px 6px;
   box-shadow: 0 3px 3px rgba($black, 0.25);
+
+  @include max-w($sm) {
+    max-height: 290px;
+    height: 100%;
+  }
 
   &__link {
     position: relative;
@@ -1227,6 +1885,11 @@
     border-radius: 6px 6px 0 0;
     object-fit: cover;
     margin-bottom: 18px;
+
+    @include max-w($sm) {
+      width: 345px;
+      height: 200px;
+    }
   }
 
   &__title {
@@ -1238,5 +1901,9 @@
     color: $dark-900;
     transition: color 0.5s;
     @include line-clamp(3);
+
+    @include max-w($sm) {
+      font-size: 14px;
+    }
   }
 }

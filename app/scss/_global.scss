@@ -28,14 +28,8 @@ body {
   background-color: $white;
 }
 
-.lock-scroll {
-  height: 100vh;
-  overflow-y: hidden;
-  padding-right: 18px;
-}
-
 .overlay {
-  position: absolute;
+  position: fixed;
   display: none;
   background-color: rgba($black, 0.15);
   width: 100%;
@@ -145,6 +139,14 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: $dark-900;
+
+  @include max-w($lg) {
+    margin-bottom: 20px;
+  }
+
+  @include max-w($xs) {
+    font-size: 24px;
+  }
 }
 
 .badge {
@@ -198,6 +200,10 @@ body {
   &__icon {
     fill: $silver-600;
     transition: fill 0.5s, opacity 0.5s;
+
+    @include max-w($sm) {
+      width: 25px;
+    }
   }
 }
 
