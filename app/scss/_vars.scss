@@ -50,21 +50,3 @@ $xs: 480px;
     @content;
   }
 }
-
-@mixin min-w($width) {
-  @media (max-width: calc($width + 1px)) {
-    @content;
-  }
-}
-
-@mixin max-h($height) {
-  @media (max-width: $height) {
-    @content;
-  }
-}
-
-@mixin min-h($height) {
-  @media (max-width: calc($height + 1px)) {
-    @content;
-  }
-}
