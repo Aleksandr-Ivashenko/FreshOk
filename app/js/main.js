@@ -1,4 +1,69 @@
 $(function () {
+  var $range = $(".aside__price");
+  var $inputFrom = $(".js-from");
+  var $inputTo = $(".js-to");
+  var instance;
+  var min = 0;
+  var max = 1000;
+  var from = 0;
+  var to = 0;
+
+  $range.ionRangeSlider({
+    skin: "round",
+    type: "double",
+    min: min,
+    max: max,
+    from: 200,
+    to: 800,
+    onStart: updateInputs,
+    onChange: updateInputs,
+    onFinish: updateInputs
+  });
+  instance = $range.data("ionRangeSlider");
+
+  function updateInputs(data) {
+    from = data.from;
+    to = data.to;
+
+    $inputFrom.prop("value", from);
+    $inputTo.prop("value", to);
+  }
+
+  $inputFrom.on("change", function () {
+    var val = $(this).prop("value");
+    // validate
+    if (val < min) {
+      val = min;
+    } else if (val > to) {
+      val = to;
+    }
+
+    instance.update({
+      from: val
+    });
+
+    $(this).prop("value", val);
+  });
+
+  $inputTo.on("change", function () {
+    var val = $(this).prop("value");
+    // validate
+    if (val < from) {
+      val = from;
+    } else if (val > max) {
+      val = max;
+    }
+
+    instance.update({
+      to: val
+    });
+
+    $(this).prop("value", val);
+  });
+  /*  слайдер цен в каталоге  ^^  */
+
+  $('.sorting__select').styler();
+
 
   /*  клик по кнопке выпадающего меню  */
   $('.dropdown-catalog__btn').on('click', function () {
@@ -89,33 +154,52 @@ $(function () {
     $('body').removeClass('scroll-lock');
   });
 
-  /*                      страница catalog                             */
-
   /*  тип карточек сортировки  */
-  $('.sorting__btn--badges').on('click', function () {
-    $('.sorting__btn--tiles').removeClass('sorting__btn--active');
+  $('.sorting__btn').on('click', function () {
+    $('.sorting__btn').removeClass('sorting__btn--active');
+    $(this).addClass('sorting__btn--active');
   });
 
   $('.sorting__btn--badges').on('click', function () {
     $('.catalog__list').addClass('badges-cards');
   });
 
-  $('.sorting__btn--badges').on('click', function () {
-    $('.sorting__btn--badges').addClass('sorting__btn--active');
-  });
-
-  $('.sorting__btn--tiles').on('click', function () {
-    $('.sorting__btn--badges').removeClass('sorting__btn--active');
-  });
-
   $('.sorting__btn--tiles').on('click', function () {
     $('.catalog__list').removeClass('badges-cards');
   });
 
-  $('.sorting__btn--tiles').on('click', function () {
-    $('.sorting__btn--tiles').addClass('sorting__btn--active');
+  /* выпадающие меню aside  */
+  $('.categories-btn').on('click', function () {
+    $('.categories-list').toggleClass('aside__dropdown--active');
   });
 
+  $('.categories-btn').on('click', function () {
+    $('.categories-btn').toggleClass('aside__btn--active');
+  });
+
+  $('.suggestions-btn').on('click', function () {
+    $('.suggestions-list').toggleClass('aside__dropdown--active');
+  });
+
+  $('.suggestions-btn').on('click', function () {
+    $('.suggestions-btn').toggleClass('aside__btn--active');
+  });
+
+  $('.brand-btn').on('click', function () {
+    $('.brand-list').toggleClass('aside__dropdown--active');
+  });
+
+  $('.brand-btn').on('click', function () {
+    $('.brand-btn').toggleClass('aside__btn--active');
+  });
+
+  $('.price-btn').on('click', function () {
+    $('.price-list').toggleClass('aside__dropdown--active');
+  });
+
+  $('.price-btn').on('click', function () {
+    $('.price-btn').toggleClass('aside__btn--active');
+  });
 
   /*  отслеживание esc  */
   $(document).keyup(function (e) {
@@ -126,6 +210,8 @@ $(function () {
       $('.search').removeClass('search--active');
       $('.dropdown-main').removeClass('dropdown-main--active');
       $('body').removeClass('scroll-lock');
+      $('.aside__btn').removeClass('aside__btn--active');
+      $('.aside__dropdown').removeClass('aside__dropdown--active');
     }
   });
 
@@ -175,10 +261,6 @@ $(function () {
 
   var Mixer1 = mixitup(containerEl1, config);
   var Mixer2 = mixitup(containerEl2, config);
-
-
-  // $('.sorting__type').styler();
-
 
   if ($(window).width() < 1201) {
     $('.search__input').attr('placeholder', 'Я ищу...');
