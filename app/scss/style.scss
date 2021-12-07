@@ -145,8 +145,8 @@
   color: $dark-800;
   background-color: $white;
   padding: 25px 0;
-  z-index: 5;
-  transform: translateY(-1000px);
+  z-index: 11;
+  transform: translateY(-1200px);
   transition: transform 0.7s;
 
   &--active {
@@ -468,6 +468,7 @@
 
   &__btn {
     padding: 12px 52px;
+    font-size: 14px;
     text-transform: uppercase;
     background-color: $dark-800;
     border-radius: 0 6px 6px 0;
@@ -755,7 +756,11 @@
   }
 
   &__contact {
-    padding: 15px 0;
+    padding: 5px 0;
+
+    @include max-w($sm) {
+      padding: 15px 0;
+    }
   }
 
   &__bottom {
@@ -781,6 +786,8 @@
   }
 
   .social {
+    margin-left: -15px;
+
     @include max-w($sm) {
       margin-left: 20px;
     }
@@ -1840,11 +1847,126 @@
   line-height: 1.2;
   letter-spacing: 0.03em;
   color: $dark-900;
+
+  @include max-w($lg) {
+    margin: 30px 0;
+  }
+
+  @include max-w($sm) {
+    font-size: 30px;
+  }
 }
 
 .catalog-wrapper {
   display: flex;
   margin-bottom: 70px;
+
+  @include max-w($sm) {
+    margin-bottom: 25px;
+  }
+}
+
+.aside-wrapper {
+  position: relative;
+  padding-top: 60px;
+  background-color: $white;
+  z-index: 11;
+  transition: transform 0.5s;
+
+  @include max-w($xl) {
+    position: absolute;
+    width: 320px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateY(-3000px);
+  }
+
+  &--active {
+    transform: translateY(0);
+  }
+}
+
+.aside-open {
+  position: relative;
+  display: none;
+  width: 47px;
+  height: 47px;
+  margin-right: 15px;
+  background-color: $silver-100;
+  border-radius: 3px;
+  outline: transparent;
+  transition: box-shadow 0.5s, border-color 0.5s, opacity 0.5s;
+
+  @include max-w($xl) {
+    display: block;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px $green-200;
+  }
+
+  &:hover {
+    border-color: $green-900;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &::before {
+    @include pseudo;
+    top: 50%;
+    right: 50%;
+    width: 60px;
+    height: 36px;
+    background-image: url('../images/sprite.svg#icon-btn-aside');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateX(50%) translateY(-50%);
+    filter: invert(55%) sepia(22%) saturate(3255%) hue-rotate(50deg) brightness(94%) contrast(89%);
+  }
+}
+
+.aside-close {
+  position: absolute;
+  display: none;
+  top: 7px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 3px;
+  outline: transparent;
+
+  @include max-w($xl) {
+    display: block;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 0 30px rgba($black, 0.1);
+  }
+
+  &__line {
+    display: flex;
+
+    &::before,
+    &::after {
+      @include pseudo;
+      width: 30px;
+      height: 2px;
+      background-color: $black;
+    }
+
+    &::before {
+      transform: rotateZ(45deg);
+      top: 50%;
+    }
+
+    &::after {
+      transform: rotateZ(-45deg);
+      top: 50%;
+    }
+  }
 }
 
 .aside {
@@ -1852,6 +1974,17 @@
   min-width: 300px;
   /*  используя просто width ширина не задаётся  */
   margin-right: 30px;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  @include max-w($xl) {
+    margin-right: 20px;
+    padding-bottom: 50px;
+    height: 100vh;
+    overflow-y: scroll;
+  }
 
   &__btn {
     position: relative;
@@ -1870,9 +2003,9 @@
 
     &::before {
       @include pseudo;
-      top: 25px;
-      right: 20px;
-      width: 25px;
+      top: 17px;
+      right: 22px;
+      width: 20px;
       height: 20px;
       background-image: url('../images/sprite.svg#icon-dropdown-arrow');
       background-size: contain;
@@ -1894,20 +2027,20 @@
     }
   }
 
-  .aside__dropdown--active.categories-list {
+  .aside__dropdown--active.js-categories-dropdown {
     /*  задал высоту таким образом, так как у всех выпадашек отличается высота  */
     height: 300px;
   }
 
-  .aside__dropdown--active.suggestions-list {
+  .aside__dropdown--active.js-suggestions-dropdown {
     height: 130px;
   }
 
-  .aside__dropdown--active.brand-list {
+  .aside__dropdown--active.js-brand-dropdown {
     height: 245px;
   }
 
-  .aside__dropdown--active.price-list {
+  .aside__dropdown--active.js-price-dropdown {
     height: 120px;
   }
 
@@ -2056,19 +2189,43 @@
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
     grid-gap: 30px;
     margin-bottom: 50px;
+
+    @include max-w($lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include max-w($sm) {
+      margin-bottom: 25px;
+      grid-gap: 5px;
+    }
   }
 
   &__list.badges-cards {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
+
+    @include max-w($lg) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include max-w($sm) {
+      flex-direction: column;
+    }
+
+    .btn {
+      @include max-w($sm) {
+        margin-bottom: 25px;
+      }
+    }
   }
 }
 
@@ -2077,6 +2234,11 @@
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 50px;
+
+  @include max-w($lg) {
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
 
   &__select {
     margin-right: 15px;
@@ -2155,6 +2317,10 @@
     background: $silver-100;
     border-radius: 3px;
     outline: transparent;
+
+    @include max-w($sm) {
+      display: none;
+    }
 
     &:focus {
       box-shadow: 0 0 0 3px $green-200;

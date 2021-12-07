@@ -30,7 +30,12 @@ body {
 
 .scroll-lock {
   overflow: hidden;
+  margin-right: 15px;
   /*  пытался заблокировать прокрутку через position fixed, но при этом исчезает контент со всей страницы  */
+
+  @include max-w($lg) {
+    margin-right: 0;
+  }
 }
 
 .overlay {
@@ -308,8 +313,18 @@ body {
   display: flex;
   justify-content: space-between;
 
-  &__item:not(:last-child) {
-    margin-right: 6px;
+  &__item {
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+
+    &:nth-child(3),
+    &:nth-child(5) {
+      @include max-w($sm) {
+        display: none;
+        /*  можно ли это было записать одной командой???  */
+      }
+    }
   }
 
   &__link {

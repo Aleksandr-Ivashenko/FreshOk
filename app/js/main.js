@@ -124,6 +124,10 @@ $(function () {
     $('body').removeClass('scroll-lock');
   });
 
+  $('.overlay').on('click', function () {
+    $('.aside-wrapper').removeClass('aside-wrapper--active');
+  });
+
   /* клик по поиску  */
   $('.square-button--magnifier').on('click', function () {
     $('.search').toggleClass('search--active');
@@ -169,36 +173,61 @@ $(function () {
   });
 
   /* выпадающие меню aside  */
-  $('.categories-btn').on('click', function () {
-    $('.categories-list').toggleClass('aside__dropdown--active');
+  $('.js-categories-btn').on('click', function () {
+    $('.js-categories-dropdown').toggleClass('aside__dropdown--active');
   });
 
-  $('.categories-btn').on('click', function () {
-    $('.categories-btn').toggleClass('aside__btn--active');
+  $('.js-categories-btn').on('click', function () {
+    $('.js-categories-btn').toggleClass('aside__btn--active');
   });
 
-  $('.suggestions-btn').on('click', function () {
-    $('.suggestions-list').toggleClass('aside__dropdown--active');
+  $('.js-suggestions-btn').on('click', function () {
+    $('.js-suggestions-dropdown').toggleClass('aside__dropdown--active');
   });
 
-  $('.suggestions-btn').on('click', function () {
-    $('.suggestions-btn').toggleClass('aside__btn--active');
+  $('.js-suggestions-btn').on('click', function () {
+    $('.js-suggestions-btn').toggleClass('aside__btn--active');
   });
 
-  $('.brand-btn').on('click', function () {
-    $('.brand-list').toggleClass('aside__dropdown--active');
+  $('.js-brand-btn').on('click', function () {
+    $('.js-brand-dropdown').toggleClass('aside__dropdown--active');
   });
 
-  $('.brand-btn').on('click', function () {
-    $('.brand-btn').toggleClass('aside__btn--active');
+  $('.js-brand-btn').on('click', function () {
+    $('.js-brand-btn').toggleClass('aside__btn--active');
   });
 
-  $('.price-btn').on('click', function () {
-    $('.price-list').toggleClass('aside__dropdown--active');
+  $('.js-price-btn').on('click', function () {
+    $('.js-price-dropdown').toggleClass('aside__dropdown--active');
   });
 
-  $('.price-btn').on('click', function () {
-    $('.price-btn').toggleClass('aside__btn--active');
+  $('.js-price-btn').on('click', function () {
+    $('.js-price-btn').toggleClass('aside__btn--active');
+  });
+
+  /*  aside при адаптиве  */
+  $('.aside-open').on('click', function () {
+    $('.aside-wrapper').addClass('aside-wrapper--active');
+  });
+
+  $('.aside-open').on('click', function () {
+    $('.overlay').addClass('overlay--active');
+  });
+
+  $('.aside-open').on('click', function () {
+    $('body').addClass('scroll-lock');
+  });
+
+  $('.aside-close').on('click', function () {
+    $('.aside-wrapper').removeClass('aside-wrapper--active');
+  });
+
+  $('.aside-close').on('click', function () {
+    $('.overlay').removeClass('overlay--active');
+  });
+
+  $('.aside-close').on('click', function () {
+    $('body').removeClass('scroll-lock');
   });
 
   /*  отслеживание esc  */
@@ -212,6 +241,7 @@ $(function () {
       $('body').removeClass('scroll-lock');
       $('.aside__btn').removeClass('aside__btn--active');
       $('.aside__dropdown').removeClass('aside__dropdown--active');
+      $('.aside-wrapper').removeClass('aside-wrapper--active');
     }
   });
 
