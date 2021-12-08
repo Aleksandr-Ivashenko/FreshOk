@@ -1,0 +1,83 @@
+.card-mini {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+
+  &__link {
+    position: relative;
+    display: flex;
+    width: 300px;
+    height: 125px;
+    padding: 15px 10px;
+    background-color: $white;
+    border: 1px solid $silver-600;
+    border-radius: 6px;
+    outline: transparent;
+    transition: opacity 0.5s, box-shadow 0.5s, border-color 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 4px $green-200;
+    }
+
+    &:hover {
+      border-color: $green-900;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    left: 10px;
+    top: 14px;
+  }
+
+  &__img {
+    object-fit: contain;
+    margin-right: 10px;
+  }
+
+  &__content {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 14px;
+    @include line-clamp(3);
+  }
+
+  &__inner {
+    line-height: 1;
+  }
+
+  &__price {
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  &__cost {
+    margin-right: 15px;
+    font-size: 20px;
+  }
+
+  &__cost span {
+    font-size: 14px;
+  }
+
+  &__discount {
+    margin: 0;
+    font-size: 12px;
+
+    &::before {
+      width: 39px;
+      left: -4px;
+      top: 5px;
+
+    }
+  }
+}

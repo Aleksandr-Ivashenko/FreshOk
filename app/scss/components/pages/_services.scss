@@ -1,0 +1,99 @@
+.services {
+  padding: 50px 0 30px;
+  background-color: $silver-100;
+
+  @include max-w($lg) {
+    padding: 30px 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include max-w($sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include max-w($xs) {
+      align-items: flex-start;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 75px;
+    @include line-clamp(3);
+
+    &:not(:last-child) {
+      margin-right: 90px;
+
+      @include max-w($lg) {
+        margin-right: 20px;
+      }
+
+      @include max-w($sm) {
+        margin-right: 0;
+      }
+    }
+
+    @include max-w($sm) {
+      width: 260px;
+    }
+
+    @include max-w($xs) {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      @include max-w($sm) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &::before {
+      @include pseudo;
+      left: -27px;
+      top: 0;
+      width: 104px;
+      height: 50px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
+    }
+
+    &--scooter::before {
+      background-image: url('../images/sprite.svg#icon-scooter');
+    }
+
+    &--box::before {
+      background-image: url('../images/sprite.svg#icon-box');
+    }
+
+    &--24-hours::before {
+      background-image: url('../images/sprite.svg#icon-24-hours');
+    }
+  }
+
+  &__caption {
+    max-width: 200px;
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 16px;
+    @include line-clamp(2);
+  }
+
+  &__text {
+    max-width: 165px;
+    color: $dark-500;
+    @include line-clamp(3);
+
+    @include max-w($xs) {
+      min-width: 100%;
+    }
+  }
+}

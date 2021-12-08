@@ -1,0 +1,258 @@
+.catalog-title {
+  margin: 50px 0;
+  font-family: 'Ruda', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+
+  @include max-w($lg) {
+    margin: 30px 0;
+  }
+
+  @include max-w($sm) {
+    font-size: 30px;
+  }
+}
+
+.catalog-wrapper {
+  display: flex;
+  margin-bottom: 70px;
+
+  @include max-w($sm) {
+    margin-bottom: 25px;
+  }
+}
+
+.catalog {
+  width: 100%;
+
+  .main-card__image {
+    /*  у карточек в каталоге отличается отступ от картинки от карточек с главной страници, нормально ли таким образом изменить отступ у класса main-card__image если он на странице каталога????  */
+    margin-bottom: 0;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    grid-gap: 30px;
+    margin-bottom: 50px;
+
+    @include max-w($lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include max-w($sm) {
+      margin-bottom: 25px;
+      grid-gap: 5px;
+    }
+  }
+
+  &__list.badges-cards {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+
+    @include max-w($lg) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include max-w($sm) {
+      flex-direction: column;
+    }
+
+    .btn {
+      @include max-w($sm) {
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+.sorting {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 50px;
+
+  @include max-w($lg) {
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
+
+  &__select {
+    margin-right: 15px;
+    outline: transparent;
+  }
+
+  .jq-selectbox__select {
+    padding: 15px 42px 15px 11px;
+    color: $dark-500;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    border: 1px solid $silver-600;
+    border-radius: 3px;
+    transition: box-shadow 0.5s, border-color 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &::before {
+      @include pseudo;
+      top: 20px;
+      right: 15px;
+      width: 10px;
+      height: 10px;
+      background-image: url('../images/sprite.svg#icon-dropdown-arrow');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: invert(74%) sepia(0%) saturate(0%) hue-rotate(328deg) brightness(104%) contrast(94%);
+      transition: transform 0.5s;
+    }
+  }
+
+  .jq-selectbox__dropdown {
+    padding: 15px 15px 15px 9px;
+    width: 100%;
+    color: $dark-500;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    background-color: $white;
+    border: 1px solid $silver-600;
+    border-radius: 0 0 6px 6px;
+  }
+
+  .jq-selectbox__dropdown ul {
+    overflow: hidden;
+  }
+
+  .jq-selectbox__dropdown li:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .sel {
+    display: none;
+  }
+
+  .sorting__item {
+    cursor: pointer;
+  }
+
+  .opened {
+    .jq-selectbox__select {
+      border-color: $dark-500;
+
+      &::before {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
+  &__btn {
+    position: relative;
+    width: 47px;
+    height: 47px;
+    background: $silver-100;
+    border-radius: 3px;
+    outline: transparent;
+
+    @include max-w($sm) {
+      display: none;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    &::before {
+      @include pseudo;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 35px;
+      transform: translateX(-50%) translateY(-50%);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: invert(84%) sepia(12%) saturate(16%) hue-rotate(6deg) brightness(92%) contrast(90%);
+      transition: filter 0.8s;
+    }
+
+    &--tiles::before {
+      background-image: url('../images/sprite.svg#icon-tiles');
+    }
+
+    &--badges::before {
+      background-image: url('../images/sprite.svg#icon-badges');
+    }
+
+    &--active::before {
+      filter: invert(57%) sepia(71%) saturate(2165%) hue-rotate(49deg) brightness(92%) contrast(89%);
+    }
+  }
+}
+
+.badges-cards {
+  .catalog__list {
+    margin-bottom: 50px;
+  }
+
+  .main-card {
+    display: flex;
+    width: 466px;
+    height: 162px;
+    padding: 5px 0;
+    transition: all 1s;
+    /*  нужно ли делать анимацию для смены вида карточек?????   */
+
+    &__badges {
+      top: 5px;
+      left: 5px;
+    }
+
+    &__like {
+      top: 63px;
+      right: 10px;
+    }
+
+    &__image {
+      margin-top: 0;
+    }
+
+    &__img {
+      width: 200px;
+      height: 142px;
+    }
+
+    &__grade {
+      right: 37px;
+      bottom: 132px;
+    }
+
+    &__title {
+      max-width: 200px;
+      margin-top: 15px;
+    }
+
+    &__price {
+      left: 215px;
+      bottom: 10px;
+    }
+
+    &__cart {
+      bottom: 10px;
+    }
+  }
+}

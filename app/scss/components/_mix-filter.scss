@@ -1,0 +1,67 @@
+.mix-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  @include max-w($lg) {
+    margin-bottom: 10px;
+  }
+
+  @include max-w($sm) {
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    @include max-w($sm) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $dark-500;
+    border-radius: 3px;
+    outline: transparent;
+    transition: color 0.5s, opacity 0.5s, box-shadow 0.5s, background-color 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:hover {
+      color: $green-900;
+    }
+
+    &:active {
+      color: $green-200;
+    }
+
+    &::after {
+      @include pseudo;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 3px;
+      background-color: rgba($green-900, 0.2);
+      transition: width 0.5s;
+    }
+
+    @include max-w($xs) {
+      font-size: 14px;
+    }
+  }
+
+  .mixitup-control-active {
+    &::after {
+      width: 100%;
+    }
+  }
+}
