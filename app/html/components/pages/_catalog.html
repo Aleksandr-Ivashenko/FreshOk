@@ -1,0 +1,666 @@
+  <div class="container">
+    <h1 class="catalog-title">Каталог товаров</h1>
+
+    <div class="catalog-wrapper">
+      @include('../_aside.html')
+
+      <section class="catalog">
+        <div class="sorting">
+          <button class="aside-open" type="button">
+            <span class="sr-only">открыть меню сортировки</span>
+          </button>
+
+          <select class="sorting__select" name="sorting-type">
+            <option class="sorting__item" value="type-1" selected>По названию</option>
+            <option class="sorting__item" value="type-2">По популярности</option>
+            <option class="sorting__item" value="type-3">Сначала дешевые</option>
+            <option class="sorting__item" value="type-4">Сначала дорогие</option>
+            <option class="sorting__item" value="type-5">По алфавиту</option>
+          </select>
+
+          <select class="sorting__select" name="sorting-amount">
+            <option class="sorting__item" value="amount-12" selected>По 12</option>
+            <option class="sorting__item" value="amount-18">По 18</option>
+            <option class="sorting__item" value="amount-24">По 24</option>
+            <option class="sorting__item" value="amount-30">По 30</option>
+            <option class="sorting__item" value="amount-36">По 36</option>
+          </select>
+
+
+          <button class="sorting__btn sorting__btn--tiles sorting__btn--active" type="button"></button>
+
+          <button class="sorting__btn sorting__btn--badges" type="button"></button>
+        </div>
+
+        <ul class="catalog__list">
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green">новинка</span>
+                <span class="badge badge--red">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite"></use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="напиток lifeline" src="images/catalog/9.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">3.5</span>
+                <h3 class="main-card__title">
+                  Напиток LIFELINE Intellectual со вкусом арбуза и яблока Фонте Аква 0.5 л
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount">149 <span>&#8381;</span></span>
+                <span class="cost">99<span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green" style="display: none;">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite"></use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Лимон" src="images/catalog/2.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">Лимон, 1кг</h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;">1999 <span>&#8381;</span></span>
+                <span class="cost">199 <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green" style="display: none;">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite"></use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Питахайя" src="images/catalog/3.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Питахайя красная с белой мякотью, 1шт
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;">1999 <span>&#8381;</span></span>
+                <span class="cost">1019 <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green" style="display: none;">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite"></use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Морковь" src="images/catalog/5.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green" style="display: none;">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Морковь молодая с бабушкиной грядки, 1кг
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;">1999 <span>&#8381;</span></span>
+                <span class="cost">49<span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green" style="display: none;">новинка</span>
+                <span class="badge badge--red">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite">
+                  </use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Напиток сокосодержащий"
+                  src="images/catalog/6.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Напиток сокосодержащий Sanpellegrino Aranciata Orange Красный апельсин безалкогольный
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount">299 <span>&#8381;</span></span>
+                <span class="cost">199 <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite">
+                  </use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Кофе с коноплей" src="images/catalog/7.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green" style="display: none;">
+                  в наличии
+                </span>
+                <span class="availability availability--red">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Кофе с коноплей органический Caffé Salomoni 250г
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;"></span>
+                <span class="cost">877 <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в
+                  корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite">
+                  </use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Перец оранжевый" src="images/catalog/8.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green" style="display: none;">
+                  в наличии
+                </span>
+                <span class="availability availability--red">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">Перец оранжевый, 1кг</h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;"></span>
+                <span class="cost">349 <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить
+                  товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green" style="display: none;">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite">
+                  </use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Ананас" src="images/catalog/4.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Кетчуп томатный детский органический Bio-Zentrale 500мл, 1 шт
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;">1999<span>&#8381;</span></span>
+                <span class="cost">600<span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить
+                  товар в
+                  корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green">новинка</span>
+                <span class="badge badge--red">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite">
+                  </use>
+                </svg>
+
+                <span class="sr-only">добавить
+                  товар
+                  в
+                  избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Ананас" src="images/catalog/1.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green">
+                  в
+                  наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет
+                  в
+                  наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Ананас,
+                  1кг
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount">1999
+                  <span>&#8381;</span></span>
+                <span class="cost">999
+                  <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить
+                  товар
+                  в
+                  корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green" style="display: none;">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite"></use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Морковь" src="images/catalog/5.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green" style="display: none;">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Морковь молодая с бабушкиной грядки, 1кг
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;">1999 <span>&#8381;</span></span>
+                <span class="cost">49<span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green" style="display: none;">новинка</span>
+                <span class="badge badge--red">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite">
+                  </use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Напиток сокосодержащий"
+                  src="images/catalog/6.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green">
+                  в наличии
+                </span>
+                <span class="availability availability--red" style="display: none;">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Напиток сокосодержащий Sanpellegrino Aranciata Orange Красный апельсин безалкогольный
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount">299 <span>&#8381;</span></span>
+                <span class="cost">199 <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в корзину</span>
+              </button>
+            </article>
+          </li>
+
+          <li class="catalog__item">
+            <article class="main-card">
+              <div class="main-card__badges">
+                <span class="badge badge--green">новинка</span>
+                <span class="badge badge--red" style="display: none;">-50%</span>
+                <span class="badge badge--orange" style="display: none;">хит</span>
+              </div>
+
+              <button class="main-card__like like" type="button">
+                <svg class="like__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-favorite">
+                  </use>
+                </svg>
+
+                <span class="sr-only">добавить товар в избранное</span>
+              </button>
+
+              <div class="main-card__image">
+                <img class="main-card__img" width="298" height="215" alt="Кофе с коноплей" src="images/catalog/7.png">
+
+                <a class="main-card__link" href="#"></a>
+              </div>
+
+              <div class="main-card__bottom">
+                <span class="availability availability--green" style="display: none;">
+                  в наличии
+                </span>
+                <span class="availability availability--red">
+                  заканчивается
+                </span>
+                <span class="availability availability--silver" style="display: none;">
+                  нет в наличии
+                </span>
+
+                <span class="main-card__grade grade">4.5</span>
+                <h3 class="main-card__title">
+                  Кофе с коноплей органический Caffé Salomoni 250г
+                </h3>
+              </div>
+
+              <div class="main-card__price price">
+                <span class="discount" style="display: none;"></span>
+                <span class="cost">877 <span>&#8381;</span></span>
+              </div>
+
+              <button class="main-card__cart btn" type="button">
+                <span class="sr-only">добавить товар в
+                  корзину</span>
+              </button>
+            </article>
+          </li>
+        </ul>
+
+        <div class="catalog__bottom">
+          <button class="btn" type="button">Показать ещё</button>
+
+          @include('../_pagination.html')
+        </div>
+      </section>
+    </div>
+  </div>

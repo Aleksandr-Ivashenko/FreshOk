@@ -1,0 +1,27 @@
+@include('components/_head.html')
+
+@include('components/_header.html')
+
+<main class="main">
+  <h1 class="sr-only">Магазин ФрешОк - Главная страница</h1>
+  <!--правильно ли я оставил здесь этот заголовок? ведь он ни к одному блоку не относится-->
+
+  @include('components/pages/_slider-hero.html')
+
+  @include('components/pages/_services.html')
+
+  @include('components/pages/_top-products.html')
+
+  @include('components/pages/_banners.html')
+
+  @include('components/pages/_sales.html')
+
+  @include('components/pages/_slider-brands.html')
+
+  @include('components/pages/_news.html')
+
+</main>
+
+@include('components/_footer.html')
+
+@include('components/_footer-scripts.html')

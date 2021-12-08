@@ -5,8 +5,15 @@
 @import 'global';
 
 .header {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
   color: $white;
   letter-spacing: 0.03em;
+  transition: top 0.5s;
+
+
 
   &__top {
     padding: 15px 0;
@@ -59,7 +66,7 @@
 
   .header__dropdown {
 
-    /*  вложеность здесь нужна что бы перебить классы выпадающего меню которые идут ниже в коде, просто конкретно в header пришлось подвинуть меню что бы выглядело нормально на разрешении 1200px, но если в основные классы добавить этот отстут, то мы не сможем при необходимости переиспользовать выпадающее меню, так как этот отступ уместен только в header  */
+    /*  не совсем понял как избежать сдесь вложенности, ты говорил что нужно что бы этот блок был выше в коде, но как блок dropdown-main будет выше чем header если он внутри него находится???*/
     @include max-w($lg) {
       position: absolute;
       left: 220px;
@@ -67,7 +74,16 @@
   }
 }
 
-.delivery {
+.header-up {
+  /* такие классы для липкой шапки и прочего лучше распологать в отдельном месте??  */
+  top: -55px;
+
+  @include max-w($sm) {
+    top: -115px;
+  }
+}
+
+.icon-link {
   position: relative;
   padding: 10px 35px 10px 45px;
 
@@ -269,11 +285,6 @@
   outline: none;
   transition: box-shadow 0.5s;
 
-  &__source {
-    object-fit: contain;
-    /* этому изображению ведь тоже нужно задавать object-fit?????  */
-  }
-
   &__img {
     object-fit: contain;
   }
@@ -346,7 +357,7 @@
       border-radius: 6px 6px 0 0;
 
       &::after {
-        transform: rotateZ(-90deg);
+        transform: rotateZ(180deg);
       }
     }
   }
@@ -455,9 +466,6 @@
     }
 
     &::placeholder {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
       color: $dark-800;
     }
 
@@ -498,7 +506,6 @@
     right: 0;
     z-index: 5;
     transform: translateY(-500px);
-    /*хотел поставить анимацию что бы поле выезжало сбоку, но когда оно появляется за пределами экрана, то появляется боковой скролл. Пробовал сделать как ты советовал, добавить overflow hidden, но не помогло. Пробовал добавить на body, header и родителя этого поля */
     transition: transform 0.8s;
   }
 
@@ -590,14 +597,8 @@
     }
   }
 
-  &--favorite {
-    @include max-w($sm) {
-      display: none;
-    }
-
-    &::before {
-      background-image: url('../images/sprite.svg#icon-favorite');
-    }
+  &--favorite::before {
+    background-image: url('../images/sprite.svg#icon-favorite');
   }
 
   &--cart::before {
@@ -606,10 +607,9 @@
 
   &__num {
     position: absolute;
-    top: 5px;
-    left: 7px;
-    width: 18px;
-    height: 18px;
+    top: 2px;
+    right: 28px;
+    padding: 4px;
     font-size: 10px;
     font-weight: 600;
     line-height: 1;
@@ -618,7 +618,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    border-radius: 50%;
+    border-radius: 9px;
   }
 }
 
@@ -647,7 +647,7 @@
     }
 
     &::after {
-      bottom: 240px;
+      bottom: 250px;
     }
   }
 
@@ -704,9 +704,9 @@
     }
 
     @include max-w($sm) {
-      margin: 50px 0 50px 20px;
+      margin: 40px 0 35px 43px;
       column-count: 2;
-      column-gap: 0;
+      column-gap: 25px;
     }
   }
 
@@ -717,6 +717,14 @@
 
     &:not(:last-child) {
       margin-bottom: 5px;
+
+      @include max-w($sm) {
+        margin-bottom: 10px;
+      }
+    }
+
+    @include max-w($sm) {
+      margin: 0 5px;
     }
   }
 
@@ -1113,11 +1121,11 @@
 
     &::before {
       @include pseudo;
-      left: 0;
+      left: -27px;
       top: 0;
-      width: 50px;
+      width: 104px;
       height: 50px;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
@@ -1137,6 +1145,7 @@
   }
 
   &__caption {
+    max-width: 200px;
     margin-bottom: 7px;
     font-weight: 600;
     font-size: 16px;
@@ -1319,10 +1328,10 @@
     }
 
     &::before {
-      width: 20px;
+      width: 37px;
       height: 20px;
       background-image: url('../images/sprite.svg#icon-magnifier');
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
@@ -1379,11 +1388,11 @@
       @include pseudo;
       top: 50%;
       left: 50%;
-      width: 16px;
-      height: 15px;
+      width: 30px;
+      height: 20px;
       transform: translateX(-50%) translateY(-50%);
       background-image: url('../images/sprite.svg#icon-cart-btn');
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(211deg) brightness(119%) contrast(102%);
@@ -1439,18 +1448,32 @@
       @include max-w($sm) {
         max-width: 345px;
       }
-    }
-  }
 
-  & .banners__item--big {
-    @include max-w($lg) {
-      margin-bottom: 15px;
-      /*  написал так что бы повысить приоритет, так как был конфликт с not(:last-child) для отступа справа  */
-      margin-right: 0;
+      &.banners__item {
+        @include max-w($lg) {
+          margin-bottom: 15px;
+          margin-right: 0;
+        }
+      }
+
+      .banner__title {
+        max-width: 350px;
+
+        @include max-w($sm) {
+          max-width: 275px;
+        }
+      }
+
+      .banner__link {
+        &::after {
+          background-color: $white;
+        }
+      }
     }
   }
 }
 
+/*  здесь похожее название так как banners это блок, а banner отмельная карточка, согласен что это может запутать. Как бы ты назвал в таком случае??  */
 .banner {
   display: flex;
   flex-direction: column;
@@ -1458,7 +1481,6 @@
   height: 300px;
   padding: 30px;
   font-weight: 700;
-  line-height: 1;
   text-transform: uppercase;
   background-size: cover;
   background-position: center;
@@ -1468,13 +1490,14 @@
   outline: transparent;
   transition: box-shadow 0.5s, border-color 0.5s;
 
-  @include max-w($xs) {
-    padding: 15px;
+  @include max-w($sm) {
+    padding: 75px 15px 30px 15px;
   }
 
   &__pretitle {
     margin-bottom: 18px;
     font-size: 12px;
+    line-height: 1;
     letter-spacing: 0.1em;
   }
 
@@ -1483,20 +1506,11 @@
     font-family: 'Ruda', sans-serif;
     font-weight: 600;
     font-size: 30px;
-    line-height: 1.4;
     @include line-clamp(2);
 
-    @include max-w($xs) {
+    @include max-w($sm) {
       font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    &--wide {
-      max-width: 350px;
-
-      @include max-w($sm) {
-        max-width: 275px;
-      }
+      margin-bottom: 65px;
     }
   }
 
@@ -1504,7 +1518,7 @@
     position: relative;
     width: fit-content;
     padding: 10px 0;
-    font-size: 14px;
+    line-height: 1;
     border-radius: 3px;
     outline: transparent;
     transition: box-shadow 0.5s, opacity 0.5s;
@@ -1528,12 +1542,6 @@
       width: 100%;
       height: 2px;
       background-color: $dark-500;
-    }
-
-    &--white {
-      &::after {
-        background-color: $white;
-      }
     }
   }
 }
@@ -1698,6 +1706,10 @@
 
   &__title {
     margin: 0;
+
+    @include max-w($sm) {
+      margin-bottom: 15px;
+    }
   }
 
   &__link {
@@ -1752,8 +1764,9 @@
   }
 }
 
-.article-news {
+.news-card {
   height: 345px;
+  padding-bottom: 15px;
   border-radius: 0 0 6px 6px;
   box-shadow: 0 3px 3px rgba($black, 0.25);
 
@@ -1771,11 +1784,11 @@
       box-shadow: 0 0 0 4px $green-200;
     }
 
-    &:hover .article-news__title {
+    &:hover .news-card__title {
       color: $green-900;
     }
 
-    &:active .article-news__title {
+    &:active .news-card__title {
       color: $yellow-900;
     }
   }
@@ -1791,7 +1804,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $dark-900;
     background-color: $white;
     border-radius: 0 0 4px 4px;
   }
@@ -1829,11 +1841,11 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 1.5;
-    color: $dark-900;
     transition: color 0.5s;
     @include line-clamp(3);
 
     @include max-w($sm) {
+      max-width: 310px;
       font-size: 14px;
     }
   }
@@ -1846,7 +1858,6 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.03em;
-  color: $dark-900;
 
   @include max-w($lg) {
     margin: 30px 0;
@@ -1868,9 +1879,10 @@
 
 .aside-wrapper {
   position: relative;
+  z-index: 11;
+  flex: 0 0 auto;
   padding-top: 60px;
   background-color: $white;
-  z-index: 11;
   transition: transform 0.5s;
 
   @include max-w($xl) {
@@ -1971,8 +1983,7 @@
 
 .aside {
   position: relative;
-  min-width: 300px;
-  /*  используя просто width ширина не задаётся  */
+  width: 300px;
   margin-right: 30px;
 
   &::-webkit-scrollbar {
@@ -1995,7 +2006,6 @@
     line-height: 1.2;
     letter-spacing: 0.03em;
     text-align: left;
-    color: $dark-900;
     border: 1px solid $silver-600;
     border-radius: 6px;
     outline: none;
@@ -2003,7 +2013,7 @@
 
     &::before {
       @include pseudo;
-      top: 17px;
+      top: 20px;
       right: 22px;
       width: 20px;
       height: 20px;
@@ -2334,10 +2344,10 @@
       @include pseudo;
       top: 50%;
       left: 50%;
-      width: 37px;
+      width: 60px;
       height: 35px;
       transform: translateX(-50%) translateY(-50%);
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       filter: invert(84%) sepia(12%) saturate(16%) hue-rotate(6deg) brightness(92%) contrast(90%);

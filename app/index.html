@@ -20,22 +20,20 @@
 </head>
 
 <body>
-  <header class="header">
-    <span class="overlay"></span>
 
+  <header class="header header-down">
     <nav class="header__nav">
       <div class="header__top">
         <div class="container">
           <div class="header__top-inner">
             <div class="header__connection">
-              <a class="delivery delivery--time condition" href="#">
+              <a class="icon-link icon-link--time condition" href="#">
                 адрес и время доставки
-                <span class="sr-only">уточнить адрес и время доставки</span>
               </a>
 
-              <a class="delivery delivery--phone condition" href="tel:+7907288365">
+              <a class="icon-link icon-link--phone condition" href="tel:+7907288365">
                 горячая линия 24/7
-                <span class="sr-only">позвонить на горячую линию</span>
+                <span class="sr-only">позвонить</span>
               </a>
             </div>
 
@@ -72,7 +70,7 @@
             </div>
 
             <div class="dropdown-main__content">
-              <a class="dropdown-main__nav dropdown-main__nav--green" href="#">Вход | Регистрация</a>
+              <button class="dropdown-main__nav dropdown-main__nav--green" type="button">Вход | Регистрация</button>
 
               <a class="dropdown-main__nav" href="#">Каталог товаров</a>
 
@@ -83,14 +81,13 @@
                 </a>
 
                 <a class="dropdown-main__contact dropdown-main__contact--adress"
-                  href="https://goo.gl/maps/w2UyKSPMbcouMgxi7" target="blank">
+                  href="https://goo.gl/maps/w2UyKSPMbcouMgxi7" target="_blank">
                   Санкт-Петербург, ул. Ленина, 1
                 </a>
 
                 <ul class="dropdown-main__social social social--dark">
                   <li class="social__item">
-                    <a class="social__link condition" href="#" target="blank">
-                      <!--ты говорил что перед blank нужно подчеркивание, я проверил, работает и без него, всё открывается на новой вкладке-->
+                    <a class="social__link condition" href="#" target="_blank">
                       <svg class="social__icon" width="32" height="32">
                         <use xlink:href="images/sprite.svg#icon-facebook"></use>
                       </svg>
@@ -100,7 +97,7 @@
                   </li>
 
                   <li class="social__item">
-                    <a class="social__link condition" href="#" target="blank">
+                    <a class="social__link condition" href="#" target="_blank">
                       <svg class="social__icon" width="32" height="32">
                         <use xlink:href="images/sprite.svg#icon-youtube"></use>
                       </svg>
@@ -110,7 +107,7 @@
                   </li>
 
                   <li class="social__item">
-                    <a class="social__link condition" href="#" target="blank">
+                    <a class="social__link condition" href="#" target="_blank">
                       <svg class="social__icon" width="32" height="32">
                         <use xlink:href="images/sprite.svg#icon-telegram"></use>
                       </svg>
@@ -120,7 +117,7 @@
                   </li>
 
                   <li class="social__item">
-                    <a class="social__link condition" href="#" target="blank">
+                    <a class="social__link condition" href="#" target="_blank">
                       <svg class="social__icon" width="33" height="32">
                         <use xlink:href="images/sprite.svg#icon-instagram"></use>
                       </svg>
@@ -174,10 +171,10 @@
           <div class="header__bottom-inner">
             <a class="logo" href="#">
               <picture class="logo__picture">
-                <source class="logo__source" srcset="images/logo-mobile.png" width="37" height="40"
-                  media="(max-width: 768px)">
+                <source class="logo__source" srcset="images/logo.png" width="200" height="60"
+                  media="(min-width: 768px)">
 
-                <img class="logo__img" width="200" height="60" src="images/logo.png" alt="Наш логотип">
+                <img class="logo__img" width="37" height="40" src="images/logo-mobile.png" alt="Наш логотип">
               </picture>
             </a>
 
@@ -237,7 +234,7 @@
 
             <form class="header__search search">
               <label class="search__label">
-                <input class="search__input" type="search" name="search" placeholder="Найти в магазине ...">
+                <input class="search__input" type="search" name="search" placeholder="Найти в магазине ..." required>
 
                 <span class="sr-only">введите запрос для поиска</span>
               </label>
@@ -278,10 +275,11 @@
     </nav>
   </header>
 
-  <main class="main">
-    <h1 class="sr-only">Магазин ФрешОк - Главная страница</h1>
+<main class="main">
+  <h1 class="sr-only">Магазин ФрешОк - Главная страница</h1>
+  <!--правильно ли я оставил здесь этот заголовок? ведь он ни к одному блоку не относится-->
 
-    <section class="slider-hero">
+      <section class="slider-hero">
       <h2 class="sr-only">Топовые товары и акции в магазине ФрешОк</h2>
 
       <ul class="slider-hero__items">
@@ -342,10 +340,6 @@
                   </span>
                 </h3>
 
-                <div class="slider-hero__text">
-                  <p></p>
-                </div>
-
                 <a class="slider-hero__btn btn" href="#">Купить сейчас</a>
               </div>
             </div>
@@ -354,13 +348,13 @@
       </ul>
     </section>
 
-    <div class="services">
+      <div class="services">
       <div class="container">
         <ul class="services__inner">
           <li class="services__item services__item--scooter">
-            <p class="services__caption">
+            <span class="services__caption">
               Бесплатная доставка
-            </p>
+            </span>
 
             <span class="services__text">
               Для заказов на сумму от 500 <span>&#8381;</span>
@@ -390,7 +384,7 @@
       </div>
     </div>
 
-    <section class="top-products" data-ref="filter-1">
+      <section class="top-products" data-ref="filter-1">
       <div class="container container--large">
         <h2 class="title">топовые товары</h2>
 
@@ -446,9 +440,7 @@
               <div class="main-card__image">
                 <img class="main-card__img" width="298" height="215" alt="Ананас" src="images/catalog/1.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о наших ананасах</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -485,9 +477,7 @@
               <div class="main-card__image">
                 <img class="main-card__img" width="298" height="215" alt="Лимон" src="images/catalog/2.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о наших лимонах</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -524,9 +514,7 @@
               <div class="main-card__image">
                 <img class="main-card__img" width="298" height="215" alt="Питахайя" src="images/catalog/3.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о нашей питахайе</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -565,9 +553,7 @@
               <div class="main-card__image">
                 <img class="main-card__img" width="298" height="215" alt="Кетчуп" src="images/catalog/4.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о нашем кетчупе</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -606,9 +592,7 @@
               <div class="main-card__image">
                 <img class="main-card__img" width="298" height="215" alt="Морковь" src="images/catalog/5.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о нашей моркови</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -648,9 +632,7 @@
                 <img class="main-card__img" width="298" height="215" alt="Напиток сокосодержащий"
                   src="images/catalog/6.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о нашем сокосодержащей напитке</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -689,9 +671,7 @@
               <div class="main-card__image">
                 <img class="main-card__img" width="298" height="215" alt="Кофе с коноплей" src="images/catalog/7.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о нашем кофе с коноплей</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -730,9 +710,7 @@
               <div class="main-card__image">
                 <img class="main-card__img" width="298" height="215" alt="Перец оранжевый" src="images/catalog/8.png">
 
-                <a class="main-card__link" href="#">
-                  <span class="sr-only">узнать больше о нашем оранжевом перце</span>
-                </a>
+                <a class="main-card__link" href="#"></a>
               </div>
 
               <div class="main-card__bottom">
@@ -755,7 +733,7 @@
       </div>
     </section>
 
-    <section class="banners">
+      <section class="banners">
       <h2 class="sr-only">Рекламные баннеры нашего магазина</h2>
 
       <div class="container">
@@ -764,13 +742,11 @@
             <article class="banner" style="background-image: url(images/banners/1.jpg);">
               <span class="banner__pretitle">свежайшие фрукты</span>
 
-              <h3 class="banner__title banner__title--wide">
+              <h3 class="banner__title">
                 начни фруктовое лето всего от 99 <span>&#8381;</span>
               </h3>
 
-              <a class="banner__link banner__link--white" href="#">перейти к покупкам</a>
-
-              <span class="sr-only">купить свежих фруктов</span>
+              <a class="banner__link" href="#">перейти к покупкам</a>
             </article>
           </li>
 
@@ -781,8 +757,6 @@
               <h3 class="banner__title">овощепад до -50%</h3>
 
               <a class="banner__link" href="#">перейти к покупкам</a>
-
-              <span class="sr-only">купить овощи со скидкой</span>
             </article>
           </li>
 
@@ -793,19 +767,15 @@
               <h3 class="banner__title">свежий хлебчик</h3>
 
               <a class="banner__link" href="#">перейти к покупкам</a>
-
-              <span class="sr-only">купить свежий хлеб</span>
             </article>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="sales" data-ref="filter-2">
-      <h2 class="sr-only">Распродажа в магазине ФрешОк</h2>
-
+      <section class="sales" data-ref="filter-2">
       <div class="container container--large">
-        <h3 class="title">акции</h3>
+        <h2 class="title">акции</h2>
 
         <ul class="mix-filter">
           <li class="mix-filter__item">
@@ -861,8 +831,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить ананас</span>
               </a>
             </article>
           </li>
@@ -902,8 +870,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить кофе с коноплей</span>
               </a>
             </article>
           </li>
@@ -941,8 +907,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить клубнику</span>
               </a>
             </article>
           </li>
@@ -980,8 +944,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить манго</span>
               </a>
             </article>
           </li>
@@ -1019,8 +981,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить лосось/span>
               </a>
             </article>
           </li>
@@ -1058,8 +1018,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить овощной сок</span>
               </a>
             </article>
           </li>
@@ -1097,8 +1055,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить фруктовую корзину</span>
               </a>
             </article>
           </li>
@@ -1136,8 +1092,6 @@
                     </div>
                   </div>
                 </div>
-
-                <span class="sr-only">купить мякоть свинины</span>
               </a>
             </article>
           </li>
@@ -1147,7 +1101,7 @@
       </div>
     </section>
 
-    <div class="slider-brands">
+      <div class="slider-brands">
       <div class="container">
         <ul class="slider-brands__items">
           <li class="slider-brands__item">
@@ -1261,7 +1215,7 @@
       </div>
     </div>
 
-    <section class="news">
+      <section class="news">
       <div class="container">
         <div class="news__top">
           <h2 class="news__title title">
@@ -1273,59 +1227,53 @@
 
         <ul class="news__list">
           <li class="news__item">
-            <article class="article-news">
-              <a class="article-news__link" href="#">
-                <time class="article-news__date" datetime="2021-07-15">
-                  <span class="article-news__month">июль</span>
-                  <span class="article-news__number">15</span>
+            <article class="news-card">
+              <a class="news-card__link" href="#">
+                <time class="news-card__date" datetime="2021-07-15">
+                  <span class="news-card__month">июль</span>
+                  <span class="news-card__number">15</span>
                 </time>
 
-                <img class="article-news__img" width="410" height="240" src="images/news/1.png" alt="клубника">
+                <img class="news-card__img" width="410" height="240" src="images/news/1.png" alt="клубника">
 
-                <h3 class="article-news__title">
+                <h3 class="news-card__title">
                   Событие этого лета: распродажа сезонных фруктов в онлайн-маркете ФрешОК. Торопись, пока всё не
                   разобрали!
                 </h3>
-
-                <span class="sr-only">распродажа сезонных фруктов</span>
               </a>
             </article>
           </li>
 
           <li class="news__item">
-            <article class="article-news">
-              <a class="article-news__link" href="#">
-                <time class="article-news__date" datetime="2021-05-07">
-                  <span class="article-news__month">май</span>
-                  <span class="article-news__number">07</span>
+            <article class="news-card">
+              <a class="news-card__link" href="#">
+                <time class="news-card__date" datetime="2021-05-07">
+                  <span class="news-card__month">май</span>
+                  <span class="news-card__number">07</span>
                 </time>
 
-                <img class="article-news__img" width="410" height="240" src="images/news/2.png" alt="манго">
+                <img class="news-card__img" width="410" height="240" src="images/news/2.png" alt="манго">
 
-                <h3 class="article-news__title">
+                <h3 class="news-card__title">
                   Шикарнейший выбор манго в нашем онлайн-маркете
                 </h3>
-
-                <span class="sr-only">широкий выбор манго</span>
               </a>
             </article>
           </li>
 
           <li class="news__item">
-            <article class="article-news">
-              <a class="article-news__link" href="#">
-                <time class="article-news__date" datetime="2021-02-20">
-                  <span class="article-news__month">февраль</span>
-                  <span class="article-news__number">20</span>
+            <article class="news-card">
+              <a class="news-card__link" href="#">
+                <time class="news-card__date" datetime="2021-02-20">
+                  <span class="news-card__month">февраль</span>
+                  <span class="news-card__number">20</span>
                 </time>
 
-                <img class="article-news__img" width="410" height="240" src="images/news/3.png" alt="папайя">
+                <img class="news-card__img" width="410" height="240" src="images/news/3.png" alt="папайя">
 
-                <h3 class="article-news__title">
+                <h3 class="news-card__title">
                   Всё, что вы хотели знать о папайя
                 </h3>
-
-                <span class="sr-only">узнай больше о папайя</span>
               </a>
             </article>
           </li>
@@ -1333,8 +1281,7 @@
       </div>
     </section>
 
-
-  </main>
+</main>
 
   <footer class="footer">
     <div class="container">
@@ -1342,8 +1289,7 @@
         <img class="logo__img" width="200" height="60" src="images/logo.png" alt="Наш логотип">
       </a>
 
-      <nav class="footer__top">
-        <!--из проверки я понял, что тег nav подходит в этом блоке только для ссылок, но для того что бы разместить все элементы правильно при адаптиве нужен общий родитель. Как тогда лучше сделать, оставить всем блокам общий родитель nav или обернуть в ещё одину обёртку ul с ссылками, но эта обёртка по сути и не нужна скама по себе-->
+      <div class="footer__top">
         <div class="footer__form">
           <div class="footer__text">
             <p>Следите за нашими акциями</p>
@@ -1359,54 +1305,54 @@
           </form>
         </div>
 
-        <ul class="footer__links">
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">О нас</a>
-          </li>
+        <nav class="footer__links-wrapper">
+          <ul class="footer__links">
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">О нас</a>
+            </li>
 
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">Контакты</a>
-          </li>
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">Контакты</a>
+            </li>
 
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">Публичная оферта</a>
-          </li>
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">Публичная оферта</a>
+            </li>
 
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">Оплата и доставка</a>
-          </li>
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">Оплата и доставка</a>
+            </li>
 
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">Вакансии</a>
-          </li>
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">Вакансии</a>
+            </li>
 
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">Акции</a>
-          </li>
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">Акции</a>
+            </li>
 
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">Отзывы</a>
-          </li>
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">Отзывы</a>
+            </li>
 
-          <li class="footer__item">
-            <a class="footer__link condition" href="#">Новости</a>
-          </li>
-        </ul>
+            <li class="footer__item">
+              <a class="footer__link condition" href="#">Новости</a>
+            </li>
+          </ul>
+        </nav>
 
         <address class="footer__contacts">
           <a class="footer__contact condition" href="tel: +7907288365">
             Горячая линия +7 907 288 365
-            <span class="sr-only">позвонить</span>
           </a>
 
-          <a class="footer__contact condition" href="https://goo.gl/maps/w2UyKSPMbcouMgxi7" target="blank">
+          <a class="footer__contact condition" href="https://goo.gl/maps/w2UyKSPMbcouMgxi7" target="_blank">
             Санкт-Петербург, ул. Ленина, 1
-            <span class="sr-only">посмотреть адрес</span>
           </a>
 
           <ul class="social">
             <li class="social__item">
-              <a class="social__link condition" href="#" target="blank">
+              <a class="social__link condition" href="#" target="_blank">
                 <svg class="social__icon" width="32" height="32">
                   <use xlink:href="images/sprite.svg#icon-facebook"></use>
                 </svg>
@@ -1416,7 +1362,7 @@
             </li>
 
             <li class="social__item">
-              <a class="social__link condition" href="#" target="blank">
+              <a class="social__link condition" href="#" target="_blank">
                 <svg class="social__icon" width="32" height="32">
                   <use xlink:href="images/sprite.svg#icon-youtube"></use>
                 </svg>
@@ -1426,7 +1372,7 @@
             </li>
 
             <li class="social__item">
-              <a class="social__link condition" href="#" target="blank">
+              <a class="social__link condition" href="#" target="_blank">
                 <svg class="social__icon" width="32" height="32">
                   <use xlink:href="images/sprite.svg#icon-telegram"></use>
                 </svg>
@@ -1436,7 +1382,7 @@
             </li>
 
             <li class="social__item">
-              <a class="social__link condition" href="#" target="blank">
+              <a class="social__link condition" href="#" target="_blank">
                 <svg class="social__icon" width="33" height="32">
                   <use xlink:href="images/sprite.svg#icon-instagram"></use>
                 </svg>
@@ -1446,7 +1392,7 @@
             </li>
           </ul>
         </address>
-      </nav>
+      </div>
     </div>
 
     <div class="footer__bottom">
@@ -1471,7 +1417,9 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js"></script>
-</body>
+  <span class="overlay"></span>
 
-</html>
+  <script src="js/main.min.js"></script>
+  </body>
+
+  </html>   <!--закрывающий тег html ведь тоже должен в этот файл входить???-->
