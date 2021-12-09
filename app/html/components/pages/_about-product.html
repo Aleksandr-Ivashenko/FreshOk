@@ -1,0 +1,233 @@
+<section class="about-product">
+  <div class="container">
+    <div class="about-product__top">
+      <ul class="about-product__slider">
+        <li class="about-product__slider-item">
+          <a class="about-product__slider-link" data-fancybox="gallery" data-width="750" data-height="750"
+            href="images/product/pitahaya/1-big.jpg">
+            <img class="about-product__slider-img" width="420" height="420" src="images/product/pitahaya/1.jpg"
+              alt="питахайя">
+          </a>
+        </li>
+
+        <li class="about-product__slider-item">
+          <a class="about-product__slider-link" data-fancybox="gallery" href="images/product/pitahaya/1-big.jpg">
+            <img class="about-product__slider-img" width="420" height="420" src="images/product/pitahaya/1.jpg"
+              alt="питахайя">
+          </a>
+        </li>
+
+        <li class="about-product__slider-item">
+          <a class="about-product__slider-link" data-fancybox="gallery" href="images/product/pitahaya/1-big.jpg">
+            <img class="about-product__slider-img" width="420" height="420" src="images/product/pitahaya/1.jpg"
+              alt="питахайя">
+          </a>
+        </li>
+      </ul>
+
+      <div class="about-product__info">
+        <h1 class="about-product__title about-product__title--absolute title">
+          Питахайя красная с белой мякотью
+        </h1>
+
+        <span class="about-product__badge badge badge--orange">хит</span>
+
+        <div class="about-product__row">
+          <div class="about-product__box">
+            <!--есть ли способ с помощью флексов, не используя контейнер about-product__box разместить три элемента в about-product__row как на макете, что бы два были прижаты к левой части, а один к правой???-->
+            <span class="about-product__code">Код: <span>0111111</span></span>
+            <!--правильно ли сдесь сами цифры обернуть в ещё один спан, ведь они будут менятся в зависимости от товара???-->
+
+            <div class="star-info" data-rateyo-rating="4"></div>
+          </div>
+
+          <span class="about-product__availability availability availability--green">
+            в наличии
+          </span>
+        </div>
+
+        <span class="about-product__price about-product__price--discount">299<span>&#8381;</span></span>
+        <span class="about-product__price">199<span>&#8381;</span></span>
+
+        <div class="about-product__actions">
+          <label class="about-product__label">
+            <!--нужен ли сдесь label???-->
+            <input class="about-product__input" type="number" value="1" min="1" max="99">
+
+            <button class="about-product__btn btn" type="button">добавить в корзину</button>
+          </label>
+
+          <button class="like" type="button">
+            <svg class="about-product__like-icon like__icon" width="32" height="29">
+              <use xlink:href="images/sprite.svg#icon-favorite"></use>
+            </svg>
+
+            <span class="sr-only">добавить товар в избранное</span>
+          </button>
+        </div>
+
+        <span class="about-product__title about-product__title--less title">Доставка и оплата</span>
+        <!--я не стал использовать теги заголовков,кроме h1 так как мне показалась что все места в которых текст выглядит как заголовок по своему смыслу больше похожи на span, я прав или нужно было делать h2,h3?? Ведь больше одного h2 в секции не должно быть?-->
+
+        <div class="about-product__text">
+          <p>
+            Минимальная сумма заказа - 100 руб.
+            Время доставки заказа - 60-120 мин.
+            Оплата осуществляется только банковской картой.
+            Окончательная сумма заказа формируется после сбора товаров.
+          </p>
+        </div>
+
+        <a class="about-product__link" href="#">Подробнее</a>
+      </div>
+    </div>
+  </div>
+
+  <!--может стоило разбить это на отдельные секции или от этого не было смысла????-->
+  <div class="product-tabs">
+    <div class="container">
+      <div class="product-tabs__inner">
+        <div class="product-tabs__top">
+          <a class="product-tabs__btn product-tabs__btn--active" href="#tab-1">описание</a>
+          <!--уместно ли название класса???-->
+          <a class="product-tabs__btn" href="#tab-2">характеристики</a>
+          <a class="product-tabs__btn" href="#tab-3">отзывы <span>(2)</span></a>
+        </div>
+
+        <ul class="product-tabs__content">
+          <li class="product-tabs__item product-tabs__item--active product-tabs__description" id="tab-1">
+            <p>Питахайя – это источник питательных веществ и витаминов. Содержит витамин С, который способствует
+              укреплению иммунной системы. В составе питайи много клетчатки, она благотворно влияет на работу ЖКТ.
+              Оказывает противовоспалительное действие, так как фрукт богат антиоксидантами. При употреблении питахайи,
+              понижается уровень сахара в крови, улучшается зрение и работа сердечно–сосудистой системы. Так как фрукт
+              низкокалорийный и состоит на 90% из воды, способствует снижению веса.</p>
+
+            <p>Витамины: С, Е, РР, витамины группы В</p>
+
+            <p>Микроэлементы: железо, калий, кальций, магний, фосфор</p>
+
+            <p>Внешний вид товара может отличаться от изображений, представленных на сайте.</p>
+          </li>
+
+          <li class="product-tabs__item product-tabs__specifications" id="tab-2">
+            <span class="product-tabs__characteristic">
+              Вес: <span class="product-tabs__value">250-350 г;</span>
+            </span>
+
+            <span class="product-tabs__characteristic">
+              Калорийность (на 100г): <span class="product-tabs__value">50 ккал;</span>
+            </span>
+
+            <span class="product-tabs__characteristic">
+              Условия хранения: <span class="product-tabs__value">температура от +3 до +8;</span>
+            </span>
+
+            <span class="product-tabs__characteristic">
+              Другие названия: <span class="product-tabs__value">Драконов фрукт, Глаз дракона;</span>
+            </span>
+
+            <span class="product-tabs__characteristic">
+              Страна происхождения: <span class="product-tabs__value">Вьетнам;</span>
+            </span>
+
+            <span class="product-tabs__characteristic">
+              Срок хранения: <span class="product-tabs__value">до 5 дней.</span>
+            </span>
+
+          </li>
+
+          <li class="product-tabs__item" id="tab-3">
+            <span class="coments__title title">мнения наших клиентов</span>
+
+            <div class="coments">
+              <div class="coments__row">
+                <div class="coments__user-info">
+                  <img class="coments__avatar" src="images/coments/1.png" alt="user picture">
+                  <span class="coments__user">
+                    Андрей
+                    <span class="coments__date">10.06.2021</span>
+                  </span>
+
+                </div>
+
+                <div class="star-coments" data-rateyo-rating="4"></div>
+              </div>
+
+              <div class="coments__text">
+                <p>
+                  Яркий цвет, нежный вкус. Очень свежий и приятный, буду пробовать еще!))
+                </p>
+              </div>
+            </div>
+
+            <div class="coments">
+              <div class="coments__row">
+                <div class="coments__user-info">
+                  <img class="coments__avatar" src="images/coments/1.png" alt="user picture">
+                  <span class="coments__user">
+                    Екатерина Белая
+                    <span class="coments__date">7.06.2021</span>
+                  </span>
+                </div>
+
+                <div class="star-coments" data-rateyo-rating="5"></div>
+              </div>
+
+              <div class="coments__text">
+                <p>
+                  Цвет, конечно, очень насыщенный! Ожидаешь, что и вкус будет такой же яркий (просто взрыв), но нет.
+                  Вкус
+                  "сдержанно-сладкий" и очень-очень свежий! Рад, что есть такая возможность - пробовать экзотические
+                  фрукты.
+                </p>
+              </div>
+            </div>
+
+
+            <form class="coments-form" action="#">
+              <span class="coments__title title">оставить отзыв</span>
+
+              <span class="coments-form__text coments-form__text--flex">
+                <!--нормально ли так расположить текст и звёзды???-->
+                Ваша оценка *
+                <div class="coments-form__rating"></div>
+              </span>
+
+              <div class="coments-form__feedback">
+                <label class="coments-form__text">
+                  Ваш отзыв *
+                  <textarea class="coments-form__field coments-form__field--textarea" name="message"
+                    placeholder="Введите текст отзыва" required></textarea>
+                </label>
+
+                <div class="coments-form__box">
+                  <label class="coments-form__text">
+                    Имя
+                    <input class="coments-form__field coments-form__field--margin" type="text"
+                      placeholder="Введите ваше имя" required>
+                  </label>
+
+                  <label class="coments-form__text">
+                    Email *
+                    <input class="coments-form__field" type="text" placeholder="youremail@mail.com" required>
+                  </label>
+                </div>
+              </div>
+
+              <label class="coments-form__save">
+                <span class="coments-form__save-text">
+                  Сохранить моё имя, email и адрес сайта в этом браузере для последующих моих комментариев.
+                </span>
+
+                <input class="coments-form__input" type="checkbox">
+                <span class="coments-form__checkbox"></span>
+              </label>
+
+              <button class="coments-form__btn btn" type="submit">Оставить отзыв</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

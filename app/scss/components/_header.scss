@@ -156,7 +156,7 @@
   background-color: $white;
   padding: 25px 0;
   z-index: 11;
-  transform: translateY(-1200px);
+  transform: translateY(-300%);
   transition: transform 0.7s;
 
   &--active {
@@ -176,7 +176,11 @@
 
   &__content {
     height: 100vh;
-    overflow: scroll;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
   }
 
   &__nav {

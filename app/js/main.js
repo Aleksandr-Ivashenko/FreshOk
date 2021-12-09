@@ -1,4 +1,5 @@
 $(function () {
+  /*  слайдер цен в каталоге  */
   var $range = $(".aside__price");
   var $inputFrom = $(".js-from");
   var $inputTo = $(".js-to");
@@ -60,10 +61,36 @@ $(function () {
 
     $(this).prop("value", val);
   });
-  /*  слайдер цен в каталоге  ^^  */
 
-  $('.sorting__select').styler();
+  /*  стилизация селектов  */
+  $('.sorting__select, .about-product__input').styler();
 
+  /*  звёздный рейтинг  */
+  $('.star-info, .star-coments').rateYo({
+    readOnly: true,
+    halfStar: true,
+    starWidth: '16px',
+    normalFill: '#C1C1C1',
+    ratedFill: '#FFB800',
+    starSvg: '<svg viewBox="0 0 16 16"id="icon - grade" xmlns="http:www.w3.org/2000/svg"><g clip-path="url(#aoclip0_17_846)"><path d="M.023 6.164a.469.469 0 01.378-.319l4.96-.72L7.58.63a.469.469 0 01.84 0l2.219 4.495 4.96.72a.469.469 0 01.26.8l-3.59 3.498.848 4.94a.469.469 0 01-.68.495L8 13.245l-4.436 2.333a.469.469 0 01-.68-.495l.847-4.94-3.59-3.498a.469.469 0 01-.118-.48z"/></g><defs><clipPath id="aoclip0_17_846"><path transform="matrix(-1 0 0 1 16 0)" d="M0 0h16v16H0z"/></clipPath></defs></svg>',
+  });
+
+  $('.coments-form__rating').rateYo({
+    starWidth: '16px',
+    normalFill: '#C1C1C1',
+    ratedFill: '#FFB800',
+    starSvg: '<svg class="coments-form__rating-icon" viewBox="0 0 16 16"id="icon - grade" xmlns="http:www.w3.org/2000/svg"><g clip-path="url(#aoclip0_17_846)"><path d="M.023 6.164a.469.469 0 01.378-.319l4.96-.72L7.58.63a.469.469 0 01.84 0l2.219 4.495 4.96.72a.469.469 0 01.26.8l-3.59 3.498.848 4.94a.469.469 0 01-.68.495L8 13.245l-4.436 2.333a.469.469 0 01-.68-.495l.847-4.94-3.59-3.498a.469.469 0 01-.118-.48z"/></g><defs><clipPath id="aoclip0_17_846"><path transform="matrix(-1 0 0 1 16 0)" d="M0 0h16v16H0z"/></clipPath></defs></svg>',
+  });
+
+  /*tabs*/
+  $('.product-tabs__btn').on('click', function (e) {
+    e.preventDefault();
+    $('.product-tabs__btn').removeClass('product-tabs__btn--active');
+    $(this).addClass('product-tabs__btn--active');
+
+    $('.product-tabs__item').removeClass('product-tabs__item--active');
+    $($(this).attr('href')).addClass('product-tabs__item--active');
+  });
 
   /*  клик по кнопке выпадающего меню  */
   $('.dropdown-catalog__btn').on('click', function () {
@@ -245,8 +272,6 @@ $(function () {
     }
   });
 
-
-
   $('.slider-hero__items').slick({
     infinite: false,
     prevArrow: '<button class="slider-hero__arrows slider-hero__arrows--prev" type="button"><svg class="slider-hero__arrow slider-hero__arrow--prev" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-prev"></use></svg></button >',
@@ -276,6 +301,52 @@ $(function () {
         slidesToShow: 2,
       }
     }]
+  });
+
+  $('.product-slider__list').slick({
+    slidesToShow: 4,
+    prevArrow: '<button class="slider-hero__arrows slider-hero__arrows--prev" type="button"><svg class="slider-hero__arrow slider-hero__arrow--prev" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-prev"></use></svg></button >',
+    nextArrow: '<button class="slider-hero__arrows slider-hero__arrows--next" type="button"><svg class="slider-hero__arrow slider-hero__arrow--next" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-next"></use></svg></button>',
+    responsive: [{
+      breakpoint: 1601,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+      },
+      // breakpoint: 769,
+      // settings: {
+      // }
+    }],
+  });
+
+  $('.about-product__slider').slick({
+    prevArrow: '<button class="slider-hero__arrows slider-hero__arrows--prev" type="button"><svg class="slider-hero__arrow slider-hero__arrow--prev" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-prev"></use></svg></button >',
+    nextArrow: '<button class="slider-hero__arrows slider-hero__arrows--next" type="button"><svg class="slider-hero__arrow slider-hero__arrow--next" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-next"></use></svg></button>',
+    responsive: [{
+      breakpoint: 769,
+      settings: {
+        arrows: false,
+      }
+    }]
+  });
+
+  $('[data-fancybox="gallery"]').fancybox({
+    infobar: false,
+    loop: true,
+    buttons: [
+      'close'
+    ],
+    smallBtn: false,
+    btnTpl: {
+      arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left prev" title="{{PREV}}"><svg class="slider-hero__arrow slider-hero__arrow--prev" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-prev"></use></svg></button>',
+
+      arrowRight: '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right next" title="{{NEXT}}"><svg class="slider-hero__arrow slider-hero__arrow--next" width="19" height="32"><use xlink: href = "images/sprite.svg#icon-next"></use></svg></button>',
+
+      close: '<button data-fancybox-close class="fancybox-close" title="{{CLOSE}}"><svg width="32" height="32"><use xlink: href = "images/sprite.svg#icon-close"></use></svg></button>',
+    }
+
   });
 
 
