@@ -1,0 +1,24 @@
+@include('components/main/_head.html', {
+"title": "Каталог товаров",
+})
+
+@include('components/main/_header.html')
+
+<main class="main">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#">Главная</a></li>
+                <li class="breadcrumbs__item">Каталог товаров</li>
+            </ul>
+        </div>
+    </div>
+
+    @include('pages/catalog/_catalog.html')
+
+    @include('components/_services.html')
+</main>
+
+@include('components/main/_footer.html')
+
+@include('components/main/_footer-scripts.html')

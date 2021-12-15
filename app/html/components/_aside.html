@@ -1,174 +1,183 @@
       <div class="aside-wrapper">
-        <!--скрывать aside можно было и на меньшем разрешенеии, но я подумал что для этого нужно было бы сперва задавать новые стили для каталога, а после скрытия  aside возвращать их обратно или я не прав??-->
-        <button class="aside-close" type="button">
-          <span class="aside-close__line"></span>
+          <button class="aside-close dropdown-main-btn dropdown-main-btn--close" type="button">
+              <span class="dropdown-main-btn__line"></span>
+              <span class="sr-only">закрыть меню</span>
+          </button>
 
-          <span class="sr-only">закрыть меню сортировки</span>
-        </button>
+          <div class="aside">
+              <button class="aside__btn js-categories-btn" type="button">Категории</button>
 
-        <div class="aside">
-          <button class="aside__btn js-categories-btn" type="button">Категории</button>
+              <ul class="aside__dropdown js-categories-dropdown">
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Овощи и фрукты</a>
+                  </li>
 
-          <ul class="aside__dropdown js-categories-dropdown">
-            <li class="aside__item">
-              <a class="aside__link" href="#">Овощи и фрукты</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Бакалея</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Бакалея</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Молочные продукты</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Молочные продукты</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Хлеб</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Хлеб</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Мясо</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Мясо</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Колбаса</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Колбаса</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Рыба</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Рыба</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Алкоголь</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Алкоголь</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Напитки</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Напитки</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Торты</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Торты</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Мясо</a>
+                  </li>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Мясо</a>
-            </li>
+                  <li class="aside__item">
+                      <a class="aside__link" href="#">Чай, кофе</a>
+                  </li>
+              </ul>
 
-            <li class="aside__item">
-              <a class="aside__link" href="#">Чай, кофе</a>
-            </li>
-          </ul>
+              <button class="aside__btn js-suggestions-btn" type="button">Предложения</button>
 
-          <button class="aside__btn js-suggestions-btn" type="button">Предложения</button>
+              <form class="aside__form" action="#">
+                  <ul class="aside__dropdown js-suggestions-dropdown">
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">Со скидкой</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="discount" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
 
-          <form class="aside__form" action="#">
-            <!--законно ли делать такую вложенность для реализации выпадающего списка или за мной уже выехала html полиция? )-->
-            <ul class="aside__dropdown js-suggestions-dropdown">
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">Со скидкой</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">Новинка</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="novelty" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">Хит</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="hit" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+                  </ul>
+              </form>
+
+              <button class="aside__btn js-brand-btn" type="button">Бренд</button>
+
+              <form class="aside__form" action="#">
+                  <ul class="aside__dropdown js-brand-dropdown">
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">CocaCola</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="CocaCola" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">Pepsi</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="Pepsi" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">Sprite</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="Sprite" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">Fanta</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="Fanta" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">RedBull</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="RedBull" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+
+                      <li class="aside__item">
+                          <label class="aside__label">
+                              <span class="aside__text">Dr Pepper</span>
+                              <div class="aside__box">
+                                  <input class="aside__input" name="Dr-Pepper" type="checkbox">
+                                  <span class="aside__checkbox"></span>
+                              </div>
+                          </label>
+                      </li>
+                  </ul>
+              </form>
+
+              <button class="aside__btn js-price-btn" type="button">Цена</button>
+
+              <form class="aside__dropdown js-price-dropdown" action="#">
+                  <div class="aside__price-box">
+                      <span>
+                          от
+                          <label class="sr-only" for="price-from">минимальная цена</label>
+                          <input class="aside__price-input js-from" id="price-from" name="price-from" type="number">
+                          &#8381;
+                      </span>
+
+                      <span>
+                          до
+                          <label class="sr-only" for="price-up-to">максимальная цена</label>
+                          <input class="aside__price-input js-to" id="price-up-to" name="price-up-to" type="number">
+                          &#8381;
+                      </span>
                   </div>
-                </label>
-              </li>
-
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">Новинка</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">Хит</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-            </ul>
-          </form>
-
-          <button class="aside__btn js-brand-btn" type="button">Бренд</button>
-
-          <form class="aside__form" action="#">
-            <ul class="aside__dropdown js-brand-dropdown">
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">CocaCola</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">Pepsi</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">Sprite</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">Fanta</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">RedBull</span>
-                  <div class="aside__box">
-                    <input class="aside__input" type="checkbox">
-                    <span class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-
-              <li class="aside__item">
-                <label class="aside__label">
-                  <span class="aside__text">Dr Pepper</span>
-                  <div class="aside__box"><input class="aside__input" type="checkbox"><span
-                      class="aside__checkbox"></span>
-                  </div>
-                </label>
-              </li>
-            </ul>
-          </form>
-
-          <button class="aside__btn js-price-btn" type="button">Цена</button>
-
-          <form class="aside__dropdown js-price-dropdown" action="#">
-            <div class="aside__price-box">
-              <span>от<input class="aside__price-input js-from" type="text">&#8381;</span>
-              <span>до<input class="aside__price-input js-to" type="text">&#8381;</span>
-            </div>
-            <input class="aside__price" type="text" data-min="0" data-max="1100" data-from="100" data-to="1000">
-          </form>
-        </div>
+                  <input class="aside__price" name="price-slider" type="number" data-min="0" data-max="1100" data-from="100" data-to="1000">
+              </form>
+          </div>
       </div>

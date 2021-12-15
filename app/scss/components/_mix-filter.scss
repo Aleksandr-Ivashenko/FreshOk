@@ -1,6 +1,7 @@
 .mix-filter {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 50px;
 
   @include max-w($lg) {

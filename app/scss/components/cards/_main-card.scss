@@ -1,140 +1,141 @@
 .main-card {
-  position: relative;
-  width: 300px;
-  height: 409px;
-  padding: 10px 1px;
-  border: 1px solid rgba($dark-900, 0.2);
-  border-radius: 6px;
-  transition: border-color 0.5s;
-
-  @include max-w($sm) {
-    min-height: 309px;
-    max-height: 344px;
-    width: 170px;
-    height: 100%;
-  }
-
-  &:hover {
-    border-color: $green-900;
-  }
-
-  &__badges {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__like {
-    position: absolute;
-    top: 12px;
-    right: 4px;
-  }
-
-  &__image {
     position: relative;
-    margin-top: 40px;
-    margin-bottom: 25px;
-  }
-
-  &__img {
-    object-fit: contain;
+    width: 300px;
+    height: 409px;
+    padding: 10px 1px;
+    border: 1px solid rgba($dark-900, 0.2);
+    border-radius: 6px;
+    transition: border-color 0.5s;
 
     @include max-w($sm) {
-      width: 170px;
-      height: 120px;
-    }
-  }
-
-  &__link {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba($black, 0.1);
-    transition: background-color 0.7s, opacity 0.9s;
-    opacity: 0;
-
-
-    &::before,
-    &::after {
-      @include pseudo;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-    }
-
-    &::before {
-      width: 37px;
-      height: 20px;
-      background-image: url('../images/sprite.svg#icon-magnifier');
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
-      z-index: 3;
-    }
-
-    &::after {
-      width: 48px;
-      height: 48px;
-      background-color: $white;
-      border-radius: 50%;
+        min-height: 309px;
+        max-height: 344px;
+        width: 170px;
+        height: 100%;
     }
 
     &:hover {
-      opacity: 1;
+        border-color: $green-900;
     }
-  }
 
-  &__bottom {
-    margin: 0 15px 10px 15px;
-  }
-
-  &__grade {
-    right: 35px;
-    bottom: 125px;
-  }
-
-  &__title {
-    max-width: 255px;
-    font-size: 14px;
-    font-weight: 600;
-    @include line-clamp(3);
-  }
-
-  &__price {
-    position: absolute;
-    left: 8px;
-    bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  &__cart {
-    position: absolute;
-    right: 17px;
-    bottom: 15px;
-    padding: 0;
-    width: 32px;
-    height: 32px;
-    border-radius: 3px;
-
-    &::before {
-      @include pseudo;
-      top: 50%;
-      left: 50%;
-      width: 30px;
-      height: 20px;
-      transform: translateX(-50%) translateY(-50%);
-      background-image: url('../images/sprite.svg#icon-cart-btn');
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(211deg) brightness(119%) contrast(102%);
+    &__badges {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        flex-direction: column;
     }
-  }
+
+    &__like {
+        position: absolute;
+        top: 12px;
+        right: 4px;
+    }
+
+    &__image {
+        position: relative;
+        margin-top: 40px;
+        margin-bottom: 25px;
+    }
+
+    &__img {
+        object-fit: contain;
+
+        @include max-w($sm) {
+            width: 170px;
+            height: 120px;
+        }
+    }
+
+    &__link {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba($black, 0.1);
+        outline: transparent;
+        transition: background-color 0.7s, opacity 0.9s;
+        opacity: 0;
+
+        &::before,
+        &::after {
+            @include pseudo;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &::before {
+            width: 37px;
+            height: 20px;
+            background-image: url('../images/sprite.svg#icon-magnifier');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: invert(52%) sepia(17%) saturate(4101%) hue-rotate(52deg) brightness(97%) contrast(89%);
+            z-index: 3;
+        }
+
+        &::after {
+            width: 48px;
+            height: 48px;
+            background-color: $white;
+            border-radius: 50%;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__bottom {
+        margin: 0 15px 10px 15px;
+    }
+
+    &__grade {
+        right: 35px;
+        bottom: 125px;
+    }
+
+    &__title {
+        max-width: 255px;
+        margin: 0 15px 10px 15px;
+        font-size: 14px;
+        font-weight: 600;
+        @include line-clamp(3);
+    }
+
+    &__price {
+        position: absolute;
+        left: 8px;
+        bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__cart {
+        position: absolute;
+        right: 17px;
+        bottom: 15px;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 3px;
+
+        &::before {
+            @include pseudo;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 20px;
+            transform: translateX(-50%) translateY(-50%);
+            background-image: url('../images/sprite.svg#icon-cart-btn');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(211deg) brightness(119%) contrast(102%);
+        }
+    }
 }

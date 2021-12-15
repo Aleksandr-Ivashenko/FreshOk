@@ -7,5 +7,6 @@ npm-debug.*
 
 dist/
 node_modules/
+.jsbeautifyrc
 package-lock.json
 app/css/*

@@ -1,61 +1,16 @@
-@mixin line-clamp($lines: 1) {
-  @if $lines <=1 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  @else {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: $lines;
-    -webkit-box-orient: vertical;
-  }
-}
-
-@mixin pseudo($pos: absolute, $content: '') {
-  content: $content;
-  position: $pos;
-}
-
-%checkbox-hidden {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  position: absolute;
-}
-
 $dark-900: #121212;
 $dark-800: #31352b;
 $dark-600: #4f4f4f;
 $dark-500: #505050;
-
 $green-1000: #4d810c;
 $green-900: #63a60f;
 $green-200: #e0edcf;
 $green-100: #eff6e7;
-
 $red-900: #cf3e3b;
-
 $orange-900: #ff7a00;
 $yellow-900: #ffb800;
-
 $silver-600: #c1c1c1;
 $silver-200: #f3f3f2;
 $silver-100: #f6f6f6;
-
 $white: #fff;
 $black: #000;
-
-$xl: 1600px;
-$lg: 1200px;
-$sm: 768px;
-$xs: 480px;
-
-@mixin max-w($width) {
-  @media (max-width: $width) {
-    @content;
-  }
-}

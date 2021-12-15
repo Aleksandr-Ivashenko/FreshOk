@@ -1,0 +1,256 @@
+.footer {
+    position: relative;
+    padding-top: 30px;
+    color: $white;
+    background-color: $dark-800;
+
+    @include max-w($lg) {
+        padding-top: 25px;
+    }
+
+    @include max-w($sm) {
+
+        &::before,
+        &::after {
+            @include pseudo;
+            width: 100%;
+            height: 1px;
+            background-color: rgba($white, 0.1);
+        }
+
+        &::before {
+            top: 240px;
+        }
+
+        &::after {
+            bottom: 250px;
+        }
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 30px 0;
+
+        @include max-w($lg) {
+            max-width: 767px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        @include max-w($sm) {
+            max-width: 500px;
+        }
+    }
+
+    &__form {
+        margin-right: 50px;
+
+        @include max-w($lg) {
+            margin-right: 0;
+        }
+
+        @include max-w($sm) {
+            margin-bottom: 25px;
+            order: 1;
+        }
+    }
+
+    &__text {
+        margin-bottom: 20px;
+        line-height: 1;
+        @include line-clamp(4);
+    }
+
+    &__links {
+        column-count: 3;
+        column-gap: 45px;
+
+        @include max-w($lg) {
+            margin-bottom: 25px;
+        }
+
+        @include max-w($sm) {
+            margin: 40px 0 35px 43px;
+            column-count: 2;
+            column-gap: 25px;
+        }
+    }
+
+    &__item {
+        max-width: 250px;
+        margin: 0 15px;
+        padding: 3px 0;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+
+            @include max-w($sm) {
+                margin-bottom: 10px;
+            }
+        }
+
+        @include max-w($sm) {
+            margin: 0 5px;
+        }
+    }
+
+    &__link {
+        padding: 12px 0;
+        position: relative;
+
+        &:focus {
+            box-shadow: none;
+
+            &::before {
+                box-shadow: 0 0 0 3px $green-100;
+            }
+        }
+
+        &::before {
+            @include pseudo;
+            width: 100%;
+            height: 20px;
+            border-radius: 3px;
+            transition: box-shadow 0.5s;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+
+        @include max-w($lg) {
+            margin: 25px 0;
+            order: -1;
+        }
+
+        @include max-w($sm) {
+            margin: 0;
+        }
+    }
+
+    &__contact {
+        padding: 5px 0;
+
+        @include max-w($sm) {
+            padding: 15px 0;
+        }
+    }
+
+    &__bottom {
+        padding: 25px 15px;
+        border-top: 1px solid rgba($white, 0.1);
+    }
+
+    &__bottom-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include max-w($sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__copyright {
+        @include max-w($sm) {
+            margin-top: 25px;
+            order: 1;
+        }
+    }
+
+    .logo {
+        @include max-w($sm) {
+            margin: 0 auto;
+        }
+    }
+
+    .social {
+        margin-left: -15px;
+
+        @include max-w($sm) {
+            margin-left: 20px;
+        }
+    }
+}
+
+.subscribe {
+    max-width: 306px;
+    display: flex;
+
+    &__input {
+        max-width: 180px;
+        padding: 10px 12px;
+        background-color: $white;
+        border: none;
+        border-radius: 6px 0 0 6px;
+        outline: transparent;
+        transition: box-shadow 0.5s;
+
+        @include max-w($xs) {
+            max-width: 160px;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 4px $green-200;
+        }
+    }
+
+    &__btn {
+        line-height: 1;
+        padding: 10px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 0 6px 6px 0;
+    }
+}
+
+.social {
+    display: flex;
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 5px;
+        }
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+    }
+
+    &__icon {
+        fill: $white;
+        transition: fill 0.5s;
+
+        &:active {
+            fill: $green-200;
+        }
+    }
+
+    &--dark {
+        .social__icon {
+            fill: $dark-800
+        }
+    }
+}
+
+.payment {
+    display: flex;
+
+    &__item:not(:last-child) {
+        margin-right: 25px;
+    }
+
+    &__icon {
+        fill: $white;
+    }
+}
